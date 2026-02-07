@@ -1,0 +1,294 @@
+/* Mega Menu Styles */
+
+/* Prevent horizontal overflow globally */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Parent menu item with arrow */
+.nav-item.mega-menu-item {
+    position: relative;
+}
+
+.nav-item.mega-menu-item .nav-link {
+    position: relative;
+    padding-right: 20px;
+}
+
+.mega-menu-arrow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+    color: inherit;
+}
+
+.nav-item.mega-menu-item.active .mega-menu-arrow {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Mega Menu Panel */
+.mega-menu-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f5f5f5;
+    width: 280px;
+    max-width: calc(100vw - 30px);
+    min-height: auto;
+    height: auto;
+    max-height: none;
+    overflow-y: visible;
+    overflow-x: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 1000;
+    padding: 15px 0;
+    margin-top: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.nav-item.mega-menu-item.active .mega-menu-panel {
+    display: block;
+}
+
+/* Ensure navbar container doesn't overflow */
+#mainNavbar {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+#mainNavbar .container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Mega Menu List */
+.mega-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mega-menu-list > li {
+    margin: 0;
+}
+
+/* Mega Menu Links */
+.mega-menu-link {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.mega-menu-link:hover {
+    background-color: #e0e0e0;
+    color: #0C2E92;
+}
+
+/* Expandable submenu items */
+.mega-menu-submenu-item {
+    position: relative;
+}
+
+.mega-menu-expandable {
+    position: relative;
+    padding-right: 35px;
+}
+
+.mega-menu-submenu-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1em;
+    transition: transform 0.3s ease;
+    color: #666;
+}
+
+.mega-menu-submenu-item.open .mega-menu-submenu-arrow {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* Nested submenu */
+.mega-menu-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    background-color: #e8e8e8;
+}
+
+.mega-menu-submenu-item.open .mega-menu-submenu {
+    display: block;
+}
+
+.mega-menu-submenu .mega-menu-link {
+    padding-left: 35px;
+    font-size: 0.9rem;
+}
+
+/* Scrolled navbar adjustments */
+#mainNavbar.scrolled .mega-menu-panel {
+    background-color: #f5f5f5;
+}
+
+#mainNavbar.scrolled .mega-menu-link {
+    color: #333;
+}
+
+#mainNavbar.scrolled .mega-menu-link:hover {
+    color: #0C2E92;
+    background-color: #e0e0e0;
+}
+
+/* Desktop: Allow menu to expand naturally, only scroll if absolutely necessary */
+@media (min-width: 992px) {
+    .mega-menu-panel {
+        /* Let content determine height naturally */
+        height: auto;
+        max-height: calc(100vh - 100px);
+        /* Only show scroll if content truly exceeds viewport */
+        overflow-y: auto;
+    }
+    
+    /* Make scrollbar thinner and less intrusive when it appears */
+    .mega-menu-panel::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .mega-menu-panel::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    .mega-menu-panel::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
+    
+    .mega-menu-panel::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 991px) {
+    .nav-item.mega-menu-item {
+        width: 100%;
+        position: relative;
+    }
+    
+    .nav-item.mega-menu-item .nav-link {
+        width: 100%;
+        padding-right: 35px;
+    }
+    
+    .mega-menu-panel {
+        position: static;
+        width: 100%;
+        max-width: 100vw;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 10px 0;
+        left: 0 !important;
+        right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        min-height: auto;
+        max-height: none;
+        overflow-y: visible;
+        overflow-x: hidden;
+    }
+    
+    .mega-menu-list {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+    }
+    
+    .mega-menu-link {
+        padding: 8px 15px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+        box-sizing: border-box;
+        white-space: normal;
+    }
+    
+    .mega-menu-expandable {
+        padding-right: 35px;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .mega-menu-submenu {
+        background-color: transparent;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .mega-menu-submenu .mega-menu-link {
+        padding-left: 30px;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Ensure container doesn't overflow */
+    #navbarNav {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .navbar-nav {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    /* Fix container padding on mobile */
+    #mainNavbar .container {
+        padding-left: 15px;
+        padding-right: 15px;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Ensure mega menu items don't overflow */
+    .navbar-collapse {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 576px) {
+    .mega-menu-link {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .mega-menu-expandable {
+        padding-right: 30px;
+    }
+    
+    .mega-menu-submenu .mega-menu-link {
+        padding-left: 25px;
+    }
+    
+    #mainNavbar .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
