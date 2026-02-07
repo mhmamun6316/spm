@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', __('common.products'))
+@section('title', 'Products')
 
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="mb-0">{{ __('common.products') }}</h2>
+    <h2 class="mb-0">Products</h2>
     <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
-        <i class="bi bi-plus-circle me-2"></i>{{ __('common.add_new') }}
+        <i class="bi bi-plus-circle me-2"></i>Add New
     </a>
 </div>
 
@@ -16,14 +16,12 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>{{ __('common.image') }}</th>
-                    <th>{{ __('common.name') }}</th>
-                    <th>{{ __('common.category') }}</th>
-                    <th>{{ __('common.price') }}</th>
-                    <th>{{ __('common.quantity') }}</th>
-                    <th>{{ __('common.status') }}</th>
-                    <th>{{ __('common.created_at') }}</th>
-                    <th>{{ __('common.actions') }}</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,10 +44,8 @@
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                 { data: 'image', name: 'image', orderable: false, searchable: false },
-                { data: 'name', name: 'name' },
+                { data: 'title', name: 'title' },
                 { data: 'category', name: 'category' },
-                { data: 'price', name: 'price' },
-                { data: 'quantity', name: 'quantity' },
                 { data: 'status', name: 'status', orderable: false, searchable: false },
                 { data: 'created_at', name: 'created_at' },
                 { data: 'actions', name: 'actions', orderable: false, searchable: false }
@@ -61,45 +57,45 @@
     function toggleStatus(productId, element) {
         var status = element.checked;
         $.ajax({
-            url: '/products/' + productId + '/toggle-status',
+            url: '/admin/products/' + productId + '/toggle-status',
             method: 'POST',
             data: {
                 status: status,
                 _token: '{{ csrf_token() }}'
             },
             success: function(response) {
-                toastr.success(response.message || '{{ __('common.status_updated') }}');
+                toastr.success(response.message || 'Status updated successfully');
             },
             error: function(xhr) {
                 element.checked = !status;
-                toastr.error('{{ __('common.error') }}');
+                toastr.error('Error updating status');
             }
         });
     }
 
     function deleteProduct(productId) {
         Swal.fire({
-            title: '{{ __('common.are_you_sure') }}',
-            text: "{{ __('common.delete_warning') }}",
+            title: 'Are you sure?',
+            text: "This action cannot be undone!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: '{{ __('common.yes_delete') }}'
+            confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: '/products/' + productId,
+                    url: '/admin/products/' + productId,
                     method: 'DELETE',
                     data: {
                         _token: '{{ csrf_token() }}'
                     },
                     success: function(response) {
                         $('#productsTable').DataTable().ajax.reload();
-                        Swal.fire('{{ __('common.deleted') }}', '{{ __('common.product_deleted') }}', 'success');
+                        Swal.fire('Deleted!', 'Product has been deleted.', 'success');
                     },
                     error: function(xhr) {
-                        Swal.fire('{{ __('common.error') }}', '{{ __('common.delete_failed') }}', 'error');
+                        Swal.fire('Error!', 'Failed to delete product.', 'error');
                     }
                 });
             }

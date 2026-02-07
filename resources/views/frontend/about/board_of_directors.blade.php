@@ -3,22 +3,9 @@
 @section('title', 'Board of Directors - SPM')
 
 @section('content')
-    {{-- Page Header --}}
-    <div class="page-header py-5 bg-light">
-        <div class="container py-5 text-center">
-            <h1 class="display-4 fw-bold text-primary">Board of Directors</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-decoration-none text-muted">Home</a></li>
-                    <li class="breadcrumb-item text-muted">About Us</li>
-                    <li class="breadcrumb-item active" aria-current="page">Board of Directors</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-
     {{-- Board Members Grid --}}
     <section class="board-members-section py-5">
+        <h1 class="text-center mb-5">Board of Directors</h1>
         <div class="container">
             <div class="row g-4 justify-content-center">
                 @forelse($members as $member)
@@ -33,7 +20,7 @@
                                         <i class="fas fa-user fa-5x text-muted"></i>
                                     </div>
                                 @endif
-                                
+
                                 {{-- Overlay Content --}}
                                 <div class="member-overlay d-flex flex-column justify-content-end p-4 text-center">
                                     <div class="overlay-content text-white">
@@ -54,11 +41,9 @@
     </section>
 
     <style>
-        .page-header {
-            background-color: #f8f9fa;
-            border-bottom: 1px solid #e9ecef;
+        .board-members-section{
+            padding-top: 120px !important;
         }
-
         .member-card {
             transition: transform 0.3s ease;
         }
@@ -109,9 +94,10 @@
             transform: translateY(0);
         }
 
-        .breadcrumb-item.active {
-            color: #0C2E92;
-            font-weight: 600;
+        @media (max-width: 768px) {
+            .board-members-section {
+                padding-top: 100px !important;
+            }
         }
     </style>
 @endsection

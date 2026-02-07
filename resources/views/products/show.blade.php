@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', __('common.view') . ' ' . __('common.products'))
+@section('title', 'View Product')
 
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="mb-0">{{ __('common.view') }} {{ __('common.products') }}</h2>
+    <h2 class="mb-0">View Product</h2>
     <div>
         <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-warning me-2">
-            <i class="bi bi-pencil me-2"></i>{{ __('common.edit') }}
+            <i class="bi bi-pencil me-2"></i>Edit
         </a>
         <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">
-            <i class="bi bi-arrow-left me-2"></i>{{ __('common.back') }}
+            <i class="bi bi-arrow-left me-2"></i>Back
         </a>
     </div>
 </div>
@@ -21,7 +21,7 @@
             <div class="card-body text-center">
                 @if($product->image)
                     <img src="{{ asset('storage/' . $product->image) }}" 
-                         alt="{{ $product->name }}" 
+                         alt="{{ $product->title }}" 
                          class="img-fluid mb-3" 
                          style="max-width: 100%; border-radius: 10px;">
                 @else
@@ -30,12 +30,12 @@
                         <i class="bi bi-image"></i>
                     </div>
                 @endif
-                <h4 class="mb-1">{{ $product->name }}</h4>
+                <h4 class="mb-1">{{ $product->title }}</h4>
                 <p class="text-muted mb-3">{{ $product->category->name ?? '-' }}</p>
                 @if($product->status === 'active')
-                    <span class="badge bg-success fs-6">{{ __('common.active') }}</span>
+                    <span class="badge bg-success fs-6">Active</span>
                 @else
-                    <span class="badge bg-danger fs-6">{{ __('common.inactive') }}</span>
+                    <span class="badge bg-danger fs-6">Inactive</span>
                 @endif
             </div>
         </div>
@@ -44,47 +44,43 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0">{{ __('common.information') }}</h5>
+                <h5 class="mb-0">Product Information</h5>
             </div>
             <div class="card-body">
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <th width="30%">{{ __('common.name') }}</th>
-                            <td>{{ $product->name }}</td>
+                            <th width="30%">Title</th>
+                            <td>{{ $product->title }}</td>
                         </tr>
                         <tr>
-                            <th>{{ __('common.category') }}</th>
+                            <th>Category</th>
                             <td>{{ $product->category->name ?? '-' }}</td>
                         </tr>
                         <tr>
-                            <th>{{ __('common.price') }}</th>
-                            <td>${{ number_format($product->price, 2) }}</td>
+                            <th>Short Description</th>
+                            <td>{!! $product->short_desc ?: '-' !!}</td>
                         </tr>
                         <tr>
-                            <th>{{ __('common.quantity') }}</th>
-                            <td>{{ $product->quantity }}</td>
+                            <th>Long Description</th>
+                            <td>{!! $product->long_desc ?: '-' !!}</td>
                         </tr>
                         <tr>
-                            <th>{{ __('common.description') }}</th>
-                            <td>{{ $product->description ?: '-' }}</td>
-                        </tr>
-                        <tr>
-                            <th>{{ __('common.status') }}</th>
+                            <th>Status</th>
                             <td>
                                 @if($product->status === 'active')
-                                    <span class="badge bg-success">{{ __('common.active') }}</span>
+                                    <span class="badge bg-success">Active</span>
                                 @else
-                                    <span class="badge bg-danger">{{ __('common.inactive') }}</span>
+                                    <span class="badge bg-danger">Inactive</span>
                                 @endif
                             </td>
                         </tr>
                         <tr>
-                            <th>{{ __('common.created_at') }}</th>
+                            <th>Created At</th>
                             <td>{{ $product->created_at->format('F d, Y h:i A') }}</td>
                         </tr>
                         <tr>
-                            <th>{{ __('common.updated_at') }}</th>
+                            <th>Updated At</th>
                             <td>{{ $product->updated_at->format('F d, Y h:i A') }}</td>
                         </tr>
                     </tbody>

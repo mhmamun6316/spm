@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $products = Product::with('category')->select('id', 'name', 'price', 'quantity', 'product_category_id', 'image', 'status', 'created_at');
+            $products = Product::with('category')->select('id', 'title', 'product_category_id', 'image', 'status', 'created_at');
 
             return DataTables::of($products)
                 ->addIndexColumn()
@@ -31,9 +31,6 @@ class ProductController extends Controller
                                 <i class="bi bi-image"></i>
                             </div>';
                     }
-                })
-                ->addColumn('price', function ($product) {
-                    return '$' . number_format($product->price, 2);
                 })
                 ->addColumn('status', function ($product) {
                     $checked = $product->status === 'active' ? 'checked' : '';
@@ -58,8 +55,8 @@ class ProductController extends Controller
                     return $actions;
                 })
                 ->rawColumns(['image', 'status', 'actions'])
-                ->filterColumn('name', function ($query, $keyword) {
-                    $query->where('name', 'like', "%{$keyword}%");
+                ->filterColumn('title', function ($query, $keyword) {
+                    $query->where('title', 'like', "%{$keyword}%");
                 })
                 ->make(true);
         }
