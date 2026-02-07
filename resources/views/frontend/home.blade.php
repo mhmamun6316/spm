@@ -463,30 +463,222 @@
             }
         }
 
-        /* Service Cards Hover Effect */
-        .service-card {
+        /* Why Choose Us Section */
+        .why-choose-us-section {
+            background-color: #ffffff;
+            position: relative;
+        }
+
+        .section-title-wrapper {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .section-title-wrapper::before,
+        .section-title-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100px;
+            height: 1px;
+            background-color: #C4C4C4;
+        }
+
+        .section-title-wrapper::before {
+            left: calc(50% - 150px);
+        }
+
+        .section-title-wrapper::after {
+            right: calc(50% - 150px);
+        }
+
+        .section-title {
+            display: inline-block;
+            background-color: #ffffff;
+            padding: 0 30px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0C2E92;
+            border: 1px solid #C4C4C4;
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-choose-us-swiper {
+            padding: 40px 0 60px;
+            position: relative;
+        }
+
+        .why-choose-card {
+            height: 100%;
+            min-height: 400px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
             transition: all 0.3s ease;
-            border: 1px solid transparent;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
-            border-color: rgba(0,0,0,0.05);
+        .why-choose-us-swiper .swiper-slide {
+            height: auto;
+            display: flex;
         }
 
-        .text-orange {
-            color: #fd7e14;
+        .card-content {
+            padding: 40px 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+            text-align: center;
         }
 
-        .service-title {
-            color: #0C2E92; /* Primary Blue */
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            color: #0C2E92;
         }
 
-        .service-card .btn-outline-dark:hover {
+        .card-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #666666;
+        }
+
+        /* Hover Overlay */
+        .card-hover-overlay {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
             background-color: #0C2E92;
-            border-color: #0C2E92;
-            color: white;
+            transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .why-choose-card:hover .card-hover-overlay {
+            left: 0;
+        }
+
+        .overlay-content {
+            padding: 40px 30px;
+            text-align: center;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .overlay-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            color: #ffffff;
+        }
+
+        .btn-learn-more {
+            display: inline-block;
+            background-color: #dc3545;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-learn-more:hover {
+            background-color: #c82333;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+        }
+
+        /* Swiper Navigation */
+        .why-choose-us-swiper .swiper-button-next,
+        .why-choose-us-swiper .swiper-button-prev {
+            color: #0C2E92;
+            background-color: #ffffff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-choose-us-swiper .swiper-button-next:after,
+        .why-choose-us-swiper .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .why-choose-us-swiper .swiper-button-next:hover,
+        .why-choose-us-swiper .swiper-button-prev:hover {
+            background-color: #0C2E92;
+            color: #ffffff;
+        }
+
+        .why-choose-us-swiper .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background-color: #C4C4C4;
+            opacity: 1;
+        }
+
+        .why-choose-us-swiper .swiper-pagination-bullet-active {
+            background-color: #0C2E92;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+                padding: 0 20px;
+            }
+
+            .section-title-wrapper::before,
+            .section-title-wrapper::after {
+                width: 50px;
+            }
+
+            .section-title-wrapper::before {
+                left: calc(50% - 100px);
+            }
+
+            .section-title-wrapper::after {
+                right: calc(50% - 100px);
+            }
+
+            .why-choose-card {
+                min-height: 350px;
+            }
+
+            .why-choose-us-swiper .swiper-slide {
+                height: auto;
+            }
+
+            .card-content {
+                padding: 30px 20px;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+
+            .card-description {
+                font-size: 0.95rem;
+            }
         }
 
         /* Partners Hover Effect */
@@ -700,38 +892,47 @@
         </section>
     @endif
 
-    {{-- Services Section --}}
+    {{-- Services Section (Why Choose Us) --}}
     @if($services && $services->count() > 0)
-        <section class="services-section py-3" style="background-color: #f8f9fa;">
-            <div class="container py-5">
-                <div class="row g-4">
-                    @foreach($services as $service)
-                        <div class="col-md-6 d-flex" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
-                            <div class="service-card w-100 bg-white p-5 rounded-3 shadow-sm d-flex flex-column h-100 position-relative overflow-hidden">
-                                {{-- Icon/Image --}}
-                                <div class="service-icon mb-4">
-                                    @if($service->image)
-                                        <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" height="50">
-                                    @else
-                                        <i class="fas fa-cogs fa-3x text-orange"></i>
-                                    @endif
-                                </div>
+        <section class="why-choose-us-section py-5">
+            <div class="container">
+                <div class="section-title-wrapper text-center mb-5">
+                    <h2 class="section-title">Why Choose Us</h2>
+                </div>
+                
+                <div class="swiper why-choose-us-swiper">
+                    <div class="swiper-wrapper">
+                        @foreach($services as $service)
+                            <div class="swiper-slide">
+                                <div class="why-choose-card">
+                                    <div class="card-content">
+                                        {{-- Title --}}
+                                        <h3 class="card-title">{{ $service->title }}</h3>
 
-                                {{-- Title --}}
-                                <h3 class="service-title fw-bold mb-3 h4">{{ $service->title }}</h3>
+                                        {{-- Description --}}
+                                        <p class="card-description">
+                                            {{ Str::limit($service->short_description, 200) }}
+                                        </p>
+                                    </div>
 
-                                {{-- Description --}}
-                                <div class="service-description text-muted mb-4 flex-grow-1">
-                                    {{ Str::limit($service->short_description, 150) }}
-                                </div>
-
-                                {{-- Read More Button --}}
-                                <div class="mt-auto">
-                                    <a href="{{ route('service.show', $service->slug) }}" class="btn btn-outline-dark rounded-pill px-4 py-2 text-uppercase small fw-bold" style="letter-spacing: 1px;">Read More</a>
+                                    {{-- Hover Overlay --}}
+                                    <div class="card-hover-overlay">
+                                        <div class="overlay-content">
+                                            <h3 class="overlay-title">{{ $service->title }}</h3>
+                                            <a href="{{ route('service.show', $service->slug) }}" class="btn-learn-more">Learn More</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
+
+                    <!-- Navigation arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
@@ -904,6 +1105,41 @@
                 },
             }
         });
+
+        // Why Choose Us Swiper
+        if (document.querySelector('.why-choose-us-swiper')) {
+            new Swiper('.why-choose-us-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                }
+            });
+        }
     });
 </script>
 @endpush
