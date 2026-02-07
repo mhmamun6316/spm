@@ -133,7 +133,7 @@
     <style>
         /* Swiper Navigation Size */
         .heroSlider {
-            --swiper-navigation-size: 30px;
+            --swiper-navigation-size: 30px!important;
         }
 
         .hero-section {
@@ -371,33 +371,96 @@
             }
         }
 
-        /* Mission & Values Section Styles */
-        .mission-values-section {
-            background-color: #0C2E92; /* Primary Blue */
-            color: white;
+        /* Mission & Vision Section Styles */
+        .mission-vision-section {
+            background-color: #f5f5f5; /* Light gray background */
+            padding: 80px 0;
         }
 
-        .mission-values-section .section-heading {
-            font-size: 2rem;
-            font-weight: 800;
-            color: white;
-            letter-spacing: 1px;
+        .mission-vision-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 40px 35px;
+            height: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
-        .mission-values-section .section-text {
-            font-size: 1.1rem;
+        .mission-vision-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon-img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .mission-vision-card:hover .card-icon-img {
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0C2E92; /* Dark blue */
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .card-text {
+            font-size: 1rem;
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
-            white-space: pre-wrap; /* Preserve formatting */
+            color: #666666; /* Dark gray */
+            margin: 0;
+            flex-grow: 1;
         }
 
-        .vertical-divider {
-            position: absolute;
-            right: 0;
-            top: 10%;
-            bottom: 10%;
-            width: 1px;
-            background-color: rgba(255, 255, 255, 0.3);
+        .card-text p {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .mission-vision-section {
+                padding: 60px 0;
+            }
+
+            .mission-vision-card {
+                padding: 30px 25px;
+                margin-bottom: 20px;
+            }
+
+            .card-icon {
+                margin-bottom: 20px;
+            }
+
+            .card-icon svg {
+                width: 50px;
+                height: 50px;
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .card-text {
+                font-size: 0.95rem;
+            }
         }
 
         /* Service Cards Hover Effect */
@@ -497,29 +560,34 @@
         @endforeach
     @endif
 
-    {{-- Mission & Values Section --}}
+    {{-- Mission & Vision Section --}}
     @if($pageContent)
-        <section class="mission-values-section pt-5" data-aos="fade-up">
+        <section class="mission-vision-section py-5" data-aos="fade-up">
             <div class="container">
-                <div class="row align-items-stretch">
-                    {{-- Mission Column --}}
+                <div class="row g-4">
+                    {{-- Mission Card --}}
                     <div class="col-md-6">
-                        <div class="mission-content pe-md-2 d-flex flex-column">
-                            <h2 class="section-heading text-uppercase">MISSION</h2>
-                            <div class="section-text">
-                                {!! $pageContent->mission !!}
+                        <div class="mission-vision-card">
+                            <div class="card-icon mission-icon">
+                                <img src="{{ asset('uploads/mission.png') }}" alt="Mission Icon" class="card-icon-img">
                             </div>
+                            <h2 class="card-title">Our Mission</h2>
+                            <p class="card-text">
+                                {!! $pageContent->mission !!}
+                            </p>
                         </div>
-                        <div class="vertical-divider d-none d-md-block"></div>
                     </div>
 
-                    {{-- Values Column --}}
+                    {{-- Vision Card --}}
                     <div class="col-md-6">
-                        <div class="values-content ps-md-2 d-flex flex-column">
-                            <h2 class="section-heading text-uppercase">OUR VALUES</h2>
-                            <div class="section-text">
-                                {!! $pageContent->values !!}
+                        <div class="mission-vision-card">
+                            <div class="card-icon vision-icon">
+                                <img src="{{ asset('uploads/vission.png') }}" alt="Vision Icon" class="card-icon-img">
                             </div>
+                            <h2 class="card-title">Our Vision</h2>
+                            <p class="card-text">
+                                {!! $pageContent->values !!}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -589,7 +657,7 @@
     @if($satisfiedClients && $satisfiedClients->count() > 0)
         <section class="satisfied-clients-section py-5 bg-white">
             <div class="container py-4">
-                <h2 class="text-center section-heading text-uppercase mb-5 text-primary fw-bold" style="color: #0C2E92 !important;">OUR SATISFIED CLIENT</h2>
+                <h2 class="text-center section-heading text-uppercase mb-5 text-primary fw-bold" style="color: #0C2E92 !important;">Our Happy Customers</h2>
 
                 <div class="swiper clients-swiper">
                     <div class="swiper-wrapper align-items-center">
