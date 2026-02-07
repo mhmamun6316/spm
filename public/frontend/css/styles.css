@@ -1,0 +1,5453 @@
+/* CSS Variables */
+:root {
+    --primary-color: #66bb6a;
+    --primary-color-dark: #4caf50;
+    --primary-gradient: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100vw;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 1rem 0;
+    transition: all 0.4s ease-in-out;
+    background-color: transparent;
+}
+
+.navbar.scrolled {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+}
+
+/* Category Page Navbar - White Background */
+.category-page-navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-page-navbar .nav-link {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.category-page-navbar .nav-link:hover {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.category-page-navbar .nav-link.active {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.category-page-navbar .nav-link::after {
+    display: none;
+}
+
+.category-page-navbar .dropdown-toggle,
+.category-page-navbar.scrolled .dropdown-toggle {
+    color: var(--primary-color) !important;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.category-page-navbar .dropdown-toggle:hover,
+.category-page-navbar .dropdown-toggle.active,
+.category-page-navbar.scrolled .dropdown-toggle:hover,
+.category-page-navbar.scrolled .dropdown-toggle.active {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.category-page-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(102, 187, 106, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Navbar Link Styles - Initially white */
+.navbar .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #4CAF50;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+    width: 80%;
+}
+
+.navbar .nav-link:hover {
+    color: #4CAF50 !important;
+}
+
+.navbar .nav-link:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.navbar .nav-link.dropdown-toggle:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Navbar Links when scrolled - dark color */
+.navbar.scrolled .nav-link {
+    color: #333333 !important;
+}
+
+.navbar.scrolled .nav-link:hover {
+    color: #4CAF50 !important;
+}
+
+/* Override scrolled state for category page navbar */
+.category-page-navbar.scrolled .nav-link,
+.category-page-navbar .nav-link {
+    color: var(--primary-color) !important;
+}
+
+.category-page-navbar.scrolled .nav-link:hover,
+.category-page-navbar .nav-link:hover {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+/* Navbar Brand/Logo */
+.navbar-brand {
+    transition: all 0.3s ease;
+}
+
+.navbar-brand img {
+    transition: all 0.3s ease;
+}
+
+/* Mobile Toggle Button */
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar.scrolled .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Dropdown Menu Styles */
+.navbar .dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    min-width: 220px;
+    right: 0;
+    left: auto;
+}
+
+.navbar .dropdown-item {
+    padding: 0.35rem 0;
+    color: #333333;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: #f5f5f5;
+    color: #4CAF50;
+}
+
+.navbar .dropdown-divider {
+    margin: 0.5rem 0;
+    opacity: 0.2;
+}
+
+.navbar .dropdown-toggle {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.navbar .dropdown-toggle:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.navbar .dropdown-toggle::after {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.navbar .dropdown.show .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Video Container */
+.video-container {
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+    overflow: hidden;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.video-container video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Video Overlay */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: #ffffff;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+}
+
+.hero-buttons .btn {
+    padding: 12px 35px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.hero-buttons .btn-primary {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.hero-buttons .btn-primary:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.hero-buttons .btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #4CAF50;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-fade-in-delay {
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fadeIn 1s ease-out 0.6s both;
+}
+
+/* Content Section */
+.content-section {
+    padding: 80px 0;
+}
+
+.content-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.content-section .lead {
+    font-size: 1.25rem;
+    color: #666;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 10px;
+    }
+
+    .navbar-collapse .nav-link {
+        color: #333333 !important;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons .btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+        margin: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-buttons .btn {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .hero-buttons .btn-lg.me-3 {
+        margin-right: 0 !important;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Feature Icon Animation */
+.feature-icon {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+/* Fashion Evolution Section */
+.fashion-evolution-section {
+    background-color: #d5d5d5;
+    padding: 80px 0;
+}
+
+.evolution-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    margin-bottom: 1rem;
+}
+
+.evolution-subtitle {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #333333;
+    margin-bottom: 1.5rem;
+}
+
+.evolution-description {
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.8;
+    max-width: 100%;
+}
+
+/* Characteristics & Carousel Section */
+.characteristics-content {
+    padding: 40px 60px;
+}
+
+.characteristics-wrapper {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.characteristics-header {
+    margin-bottom: 30px;
+}
+
+.characteristics-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.heading-underline {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #88a544 0%, #2c4a8a 100%);
+    border-radius: 2px;
+}
+
+.characteristics-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 35px;
+}
+
+.characteristics-list li {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 20px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.characteristics-list li:hover {
+    transform: translateX(10px);
+    border-left-color: #88a544;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.list-icon {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.list-text {
+    flex: 1;
+}
+
+.btn-explore {
+    background: var(--primary-gradient);
+    border: none;
+    color: #ffffff;
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 20px rgba(102, 187, 106, 0.3);
+}
+
+.btn-explore:hover {
+    background: linear-gradient(135deg, var(--primary-color-dark) 0%, var(--primary-color) 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 187, 106, 0.4);
+}
+
+.btn-arrow {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-explore:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* Carousel Content */
+.carousel-content {
+    padding: 20px;
+}
+
+.carousel-img {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+.carousel-indicators {
+    bottom: -40px;
+    display: none;
+}
+
+.carousel-indicators button {
+    background-color: #2c4a8a;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+/* Parallax Dynamic Section */
+.parallax-section {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 400px;
+    overflow: hidden;
+    background-image: url(https://couturetexbd.com/wp-content/uploads/2024/06/Mask-group-6.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.parallax-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 60px;
+    z-index: 2;
+}
+
+.parallax-quote {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ethical & Responsive Sourcing Section */
+.ethical-sourcing-section {
+    background-color: #e8f5e9;
+    padding: 80px 0px 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ethical-content {
+    padding: 40px 60px;
+}
+
+.ethical-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.ethical-description {
+    font-size: 1.1rem;
+    color: #424242;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    text-align: justify;
+}
+
+.btn-ethical {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-ethical:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 187, 106, 0.3);
+}
+
+.ethical-image-wrapper {
+    position: relative;
+    padding: 20px;
+    overflow: visible;
+}
+
+.ethical-main-image {
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: visible;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.ethical-main-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+}
+
+.certificates-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    padding: 20px 15px 15px 15px;
+    border-radius: 0 0 15px 15px;
+}
+
+.certificates-top {
+    margin-bottom: 10px;
+}
+
+.certificates-bottom {
+    margin-top: 0;
+}
+
+.certificates-swiper-top,
+.certificates-swiper-bottom {
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+}
+
+.certificate-img {
+    width: auto;
+    height: 55px;
+    object-fit: contain;
+    filter: brightness(1.1);
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.certificate-img:hover {
+    filter: brightness(1.3);
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 1);
+}
+
+.ethical-banner {
+    background: var(--primary-gradient);
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(102, 187, 106, 0.3);
+}
+
+.banner-text {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Sustainability Section */
+.sustainability-section {
+    background-color: #e8f5e9;
+    padding: 40px 0;
+    position: relative;
+}
+
+.sustainability-part-1,
+.sustainability-part-2 {
+    margin-bottom: 30px;
+}
+
+.sustainability-part-2 {
+    margin-bottom: 0;
+}
+
+.sustainability-content-left,
+.sustainability-content-right {
+    padding: 20px 30px;
+}
+
+.sustainability-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.sustainability-description {
+    font-size: 1rem;
+    color: #424242;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.sustainability-image-wrapper-1 {
+    position: relative;
+    padding: 10px;
+}
+
+.sustainability-image-wrapper-1 img {
+    width: 70%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+}
+
+.sustainability-image-wrapper-3 {
+    position: relative;
+    padding: 10px;
+}
+
+.sustainability-image-wrapper-3 img {
+    width: 70%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.btn-sustainability {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-sustainability:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 187, 106, 0.3);
+}
+
+/* Quote Banner Section */
+.quote-banner-section {
+    width: 100%;
+    position: relative;
+}
+
+.quote-banner-main {
+    width: 100%;
+    min-height: 120px;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.quote-text {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Manufacturing Excellence Section */
+.manufacturing-excellence-section {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+}
+
+.manufacturing-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.manufacturing-subtitle {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #333333;
+    margin-bottom: 30px;
+}
+
+.manufacturing-description {
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.8;
+    max-width: 100%;
+    text-align: center;
+}
+
+.manufacturing-image-section {
+    padding: 20px 0;
+    background-color: #f5f5f5;
+}
+
+.manufacturing-content-left,
+.manufacturing-content-right {
+    padding: 40px 60px;
+}
+
+.manufacturing-image-wrapper {
+    padding: 20px;
+}
+
+.manufacturing-image-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.manufacturing-image-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.manufacturing-image-subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.manufacturing-image-description {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.btn-manufacturing {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-manufacturing:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 187, 106, 0.3);
+}
+
+/* Responsive Design for Manufacturing Excellence */
+@media (max-width: 1199px) {
+    .manufacturing-title {
+        font-size: 2.5rem;
+    }
+
+    .manufacturing-content-left,
+    .manufacturing-content-right {
+        padding: 30px 50px;
+    }
+
+    .manufacturing-image-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .manufacturing-excellence-section {
+        padding: 20px 0;
+    }
+
+    .manufacturing-image-section {
+        padding: 20px 0;
+    }
+
+    .manufacturing-content-left,
+    .manufacturing-content-right {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .manufacturing-title {
+        font-size: 2.2rem;
+    }
+
+    .manufacturing-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .manufacturing-description {
+        font-size: 1rem;
+    }
+
+    .manufacturing-image-title {
+        font-size: 2rem;
+    }
+
+    .manufacturing-image-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .manufacturing-image-description {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .manufacturing-title {
+        font-size: 2rem;
+    }
+
+    .manufacturing-image-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .manufacturing-excellence-section {
+        padding: 20px 0;
+    }
+
+    .manufacturing-title {
+        font-size: 1.8rem;
+    }
+
+    .manufacturing-subtitle {
+        font-size: 1rem;
+    }
+
+    .manufacturing-description {
+        font-size: 0.95rem;
+    }
+
+    .manufacturing-image-title {
+        font-size: 1.6rem;
+    }
+
+    .manufacturing-image-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive Design for Quote Banner */
+@media (max-width: 991px) {
+    .quote-text {
+        font-size: 1.2rem;
+    }
+
+    .quote-banner-main {
+        min-height: 100px;
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .quote-text {
+        font-size: 1rem;
+    }
+
+    .quote-banner-main {
+        min-height: 80px;
+        padding: 15px 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .quote-text {
+        font-size: .8rem;
+    }
+
+    .quote-banner-main {
+        min-height: 70px;
+        padding: 10px 10px;
+    }
+}
+
+/* Responsive Design for Sustainability Section */
+@media (max-width: 1199px) {
+    .sustainability-title {
+        font-size: 2.2rem;
+    }
+
+    .sustainability-content-left,
+    .sustainability-content-right {
+        padding: 15px 25px;
+    }
+
+    .sustainability-image-wrapper-1 img,
+    .sustainability-image-wrapper-3 img {
+        width: 75%;
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 991px) {
+    .sustainability-section {
+        padding: 30px 0;
+    }
+
+    .sustainability-part-1,
+    .sustainability-part-2 {
+        margin-bottom: 20px;
+    }
+
+    .sustainability-content-left,
+    .sustainability-content-right {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .sustainability-title {
+        font-size: 2rem;
+    }
+
+    .sustainability-description {
+        font-size: 0.95rem;
+    }
+
+    .sustainability-image-wrapper-1 img,
+    .sustainability-image-wrapper-3 img {
+        width: 80%;
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sustainability-title {
+        font-size: 1.8rem;
+    }
+
+    .sustainability-image-wrapper-1 img,
+    .sustainability-image-wrapper-3 img {
+        width: 85%;
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sustainability-section {
+        padding: 25px 0;
+    }
+
+    .sustainability-title {
+        font-size: 1.6rem;
+    }
+
+    .sustainability-description {
+        font-size: 0.9rem;
+    }
+
+    .sustainability-image-wrapper-1 img,
+    .sustainability-image-wrapper-3 img {
+        width: 90%;
+        max-height: 200px;
+    }
+}
+
+/* Responsive Design for Ethical Section */
+@media (max-width: 1199px) {
+    .ethical-title {
+        font-size: 2.5rem;
+    }
+
+    .ethical-content {
+        padding: 30px 50px;
+    }
+}
+
+@media (max-width: 991px) {
+    .ethical-content {
+        padding: 20px;
+        margin-bottom: 40px;
+    }
+
+    .ethical-title {
+        font-size: 2.2rem;
+    }
+
+    .ethical-description {
+        font-size: 1rem;
+    }
+
+    .certificates-overlay {
+        padding: 15px 10px 10px 10px;
+    }
+
+    .certificates-swiper-top,
+    .certificates-swiper-bottom {
+        height: 60px;
+    }
+
+    .certificate-img {
+        height: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .ethical-title {
+        font-size: 2rem;
+    }
+
+    .certificates-overlay {
+        padding: 12px 8px 8px 8px;
+    }
+
+    .certificates-swiper-top,
+    .certificates-swiper-bottom {
+        height: 60px;
+    }
+
+    .certificate-img {
+        height: 45px;
+    }
+
+    .ethical-banner {
+        padding: 15px 20px;
+    }
+
+    .banner-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .ethical-sourcing-section {
+        padding: 50px 0;
+    }
+
+    .ethical-title {
+        font-size: 1.8rem;
+    }
+
+    .ethical-description {
+        font-size: 0.95rem;
+    }
+
+    .certificates-swiper-top,
+    .certificates-swiper-bottom {
+        height: 60px;
+    }
+
+    .certificate-img {
+        height: 45px;
+    }
+
+    .certificates-overlay {
+        padding: 10px 5px 5px 5px;
+    }
+}
+
+/* Responsive Design for Parallax Section */
+@media (max-width: 991px) {
+    .parallax-section {
+        height: 40vh;
+        min-height: 350px;
+        background-attachment: scroll;
+    }
+
+    .parallax-quote {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    .parallax-content {
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .parallax-section {
+        height: 35vh;
+        min-height: 300px;
+    }
+
+    .parallax-quote {
+        font-size: 1.3rem;
+        padding: 15px;
+    }
+
+    .parallax-content {
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .parallax-section {
+        height: 30vh;
+        min-height: 250px;
+    }
+
+    .parallax-quote {
+        font-size: 1.1rem;
+        padding: 10px;
+    }
+
+    .parallax-content {
+        padding-top: 30px;
+    }
+}
+
+/* Parallax Section 2 */
+/* Parallax Values Section */
+.parallax-values-section {
+    position: relative;
+    width: 100%;
+    min-height: 900px;
+    padding: 80px 0;
+    overflow: hidden;
+    background-image: url(../../frontend/assets/about-us/paralox1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.parallax-values-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+.parallax-values-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    line-height: 1.4;
+    margin-bottom: 50px;
+}
+
+.value-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    height: 100%;
+    text-align: center;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+}
+
+.value-icon-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+    transform: scale(1.1);
+}
+
+.value-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.value-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.parallax-section-2 {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 400px;
+    overflow: hidden;
+    background-image: url(../../frontend/assets/parallox2.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.parallax-content-2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.parallax-title-2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.parallax-subtitle-2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin-bottom: 30px;
+}
+
+.btn-parallax-2 {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-parallax-2:hover {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design for Parallax Section 2 */
+@media (max-width: 991px) {
+    .parallax-section-2 {
+        height: 40vh;
+        min-height: 350px;
+        background-attachment: scroll;
+    }
+
+    .parallax-title-2 {
+        font-size: 2rem;
+    }
+
+    .parallax-subtitle-2 {
+        font-size: 1.3rem;
+    }
+
+    .parallax-content-2 {
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .parallax-section-2 {
+        height: 35vh;
+        min-height: 300px;
+    }
+
+    .parallax-title-2 {
+        font-size: 1.75rem;
+    }
+
+    .parallax-subtitle-2 {
+        font-size: 1.1rem;
+    }
+
+    .btn-parallax-2 {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .parallax-content-2 {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .parallax-section-2 {
+        height: 30vh;
+        min-height: 250px;
+    }
+
+    .parallax-title-2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .parallax-subtitle-2 {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .btn-parallax-2 {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+
+    .parallax-content-2 {
+        padding: 30px 15px;
+    }
+}
+
+/* About Page Hero Section */
+.about-hero-section {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.about-hero-section .hero-zoom-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: heroZoomIn 20s ease-in-out infinite alternate;
+    transform-origin: center center;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 80px;
+}
+
+.about-hero-title {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* Responsive for About Hero */
+@media (max-width: 1200px) {
+    .about-hero-title {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .about-hero-section {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .about-hero-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero-section {
+        height: 50vh;
+        min-height: 350px;
+    }
+
+    .about-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .about-hero-content {
+        padding-bottom: 50px;
+    }
+
+    .parallax-values-section {
+        min-height: 700px;
+        padding: 60px 0;
+        background-attachment: scroll;
+    }
+
+    .parallax-values-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .value-card {
+        padding: 30px 20px;
+    }
+
+    .value-title {
+        font-size: 1.2rem;
+    }
+
+    .value-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-hero-section {
+        height: 40vh;
+        min-height: 300px;
+    }
+
+    .about-hero-title {
+        font-size: 2rem;
+    }
+
+    .parallax-values-section {
+        min-height: 600px;
+        padding: 40px 0;
+        background-attachment: scroll;
+    }
+
+    .parallax-values-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .value-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .value-card {
+        padding: 25px 15px;
+        margin-bottom: 20px;
+    }
+
+    .value-title {
+        font-size: 1rem;
+    }
+
+    .value-description {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+}
+
+/* About Us Section */
+.about-us-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.about-us-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.about-content {
+    padding: 40px 60px 40px 0;
+}
+
+.about-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.about-carousel-wrapper {
+    padding: 0;
+    position: relative;
+}
+
+#aboutCarousel {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent);
+    padding: 40px 30px 30px;
+    color: #ffffff;
+}
+
+.carousel-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+.carousel-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+/* Fade in animation for carousel text */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Reset animation when slide becomes active */
+#aboutCarousel .carousel-item.active .carousel-title {
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+#aboutCarousel .carousel-item.active .carousel-subtitle {
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+/* Reset opacity for non-active slides */
+#aboutCarousel .carousel-item:not(.active) .carousel-title,
+#aboutCarousel .carousel-item:not(.active) .carousel-subtitle {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Carousel Controls */
+#aboutCarousel .carousel-control-prev,
+#aboutCarousel .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+#aboutCarousel .carousel-control-prev {
+    left: 20px;
+}
+
+#aboutCarousel .carousel-control-next {
+    right: 20px;
+}
+
+#aboutCarousel .carousel-control-prev:hover,
+#aboutCarousel .carousel-control-next:hover {
+    opacity: 1;
+    background-color: #ffffff;
+    transform: translateY(-50%) scale(1.1);
+}
+
+#aboutCarousel .carousel-control-prev-icon,
+#aboutCarousel .carousel-control-next-icon {
+    filter: invert(1);
+    width: 20px;
+    height: 20px;
+}
+
+/* Carousel Indicators */
+#aboutCarousel .carousel-indicators {
+    bottom: 20px;
+    margin-bottom: 0;
+}
+
+#aboutCarousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+#aboutCarousel .carousel-indicators button.active {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    width: 30px;
+    border-radius: 15px;
+}
+
+/* Responsive Styles for About Us Section */
+@media (max-width: 1200px) {
+    .about-us-section .container-fluid {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .about-content {
+        padding: 40px 40px 40px 0;
+    }
+
+    .about-title {
+        font-size: 3rem;
+    }
+
+    .carousel-image-wrapper {
+        height: 450px;
+    }
+
+    .carousel-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .about-us-section {
+        padding: 80px 0;
+    }
+
+    .about-us-section .container-fluid {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .about-content {
+        padding: 0 0 40px 0;
+        text-align: center;
+    }
+
+    .about-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .about-description {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .carousel-image-wrapper {
+        height: 400px;
+    }
+
+    .carousel-title {
+        font-size: 2rem;
+    }
+
+    .carousel-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .carousel-overlay {
+        padding: 30px 20px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-section {
+        padding: 60px 0;
+    }
+
+    .about-us-section .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-description {
+        font-size: 0.95rem;
+    }
+
+    .carousel-image-wrapper {
+        height: 350px;
+    }
+
+    .carousel-title {
+        font-size: 1.75rem;
+    }
+
+    .carousel-subtitle {
+        font-size: 1rem;
+    }
+
+    .carousel-overlay {
+        padding: 25px 15px 15px;
+    }
+
+    #aboutCarousel .carousel-control-prev,
+    #aboutCarousel .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    #aboutCarousel .carousel-control-prev {
+        left: 10px;
+    }
+
+    #aboutCarousel .carousel-control-next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-us-section .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .about-title {
+        font-size: 1.75rem;
+    }
+
+    .carousel-image-wrapper {
+        height: 300px;
+    }
+
+    .carousel-title {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+
+    .carousel-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .carousel-overlay {
+        padding: 20px 10px 10px;
+    }
+}
+
+/* Responsive Design for Fashion Evolution */
+
+/* Extra large screens (1400px - 1599px) */
+@media (max-width: 1599px) {
+    .characteristics-wrapper {
+        padding: 35px;
+    }
+
+    .characteristics-header {
+        margin-bottom: 25px;
+    }
+
+    .characteristics-heading {
+        font-size: 1.75rem;
+        margin-bottom: 8px;
+    }
+
+    .heading-underline {
+        width: 55px;
+        height: 3px;
+    }
+
+    .characteristics-list {
+        margin-bottom: 28px;
+    }
+
+    .characteristics-list li {
+        font-size: 1.05rem;
+        padding: 13px;
+        margin-bottom: 16px;
+    }
+
+    .list-icon {
+        font-size: 1.35rem;
+        margin-right: 13px;
+    }
+
+    .btn-explore {
+        padding: 12px 35px;
+        font-size: 1rem;
+    }
+
+    .characteristics-content {
+        padding: 35px 50px;
+    }
+}
+
+/* Large desktops (1200px - 1399px) */
+@media (max-width: 1399px) {
+    .characteristics-wrapper {
+        padding: 30px;
+    }
+
+    .characteristics-header {
+        margin-bottom: 22px;
+    }
+
+    .characteristics-heading {
+        font-size: 1.6rem;
+    }
+
+    .heading-underline {
+        width: 50px;
+    }
+
+    .characteristics-list {
+        margin-bottom: 25px;
+    }
+
+    .characteristics-list li {
+        font-size: 1rem;
+        padding: 12px;
+        margin-bottom: 14px;
+    }
+
+    .list-icon {
+        font-size: 1.3rem;
+        margin-right: 12px;
+    }
+
+    .btn-explore {
+        padding: 11px 32px;
+        font-size: 0.95rem;
+    }
+
+    .characteristics-content {
+        padding: 30px 45px;
+    }
+}
+
+/* Large tablets and small desktops (992px - 1199px) */
+@media (max-width: 1199px) {
+    .characteristics-wrapper {
+        padding: 25px;
+    }
+
+    .characteristics-header {
+        margin-bottom: 20px;
+    }
+
+    .characteristics-heading {
+        font-size: 1.5rem;
+    }
+
+    .characteristics-list {
+        margin-bottom: 22px;
+    }
+
+    .characteristics-list li {
+        font-size: 0.95rem;
+        padding: 11px;
+        margin-bottom: 13px;
+    }
+
+    .list-icon {
+        font-size: 1.25rem;
+        margin-right: 11px;
+    }
+
+    .btn-explore {
+        padding: 10px 30px;
+        font-size: 0.9rem;
+    }
+
+    .characteristics-content {
+        padding: 25px 35px;
+    }
+}
+
+/* Medium tablets (768px - 991px) */
+@media (max-width: 991px) {
+    .evolution-title {
+        font-size: 2.5rem;
+    }
+
+    .evolution-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .evolution-description {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .characteristics-content {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .characteristics-wrapper {
+        padding: 25px;
+    }
+
+    .characteristics-heading {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+
+    .characteristics-list {
+        margin-bottom: 25px;
+    }
+
+    .characteristics-list li {
+        font-size: 1rem;
+        padding: 10px;
+        margin-bottom: 12px;
+    }
+
+    .list-icon {
+        font-size: 1.3rem;
+        margin-right: 12px;
+    }
+
+    .btn-explore {
+        padding: 12px 35px;
+        font-size: 1rem;
+    }
+
+    .carousel-content {
+        padding: 10px;
+    }
+}
+
+/* Small tablets and large phones (576px - 767px) */
+@media (max-width: 767px) {
+    .characteristics-section {
+        padding: 30px 0 0 0;
+    }
+
+    .characteristics-wrapper {
+        padding: 20px;
+    }
+
+    .characteristics-heading {
+        font-size: 1.4rem;
+    }
+
+    .characteristics-list li {
+        font-size: 0.95rem;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    .list-icon {
+        font-size: 1.2rem;
+        margin-right: 10px;
+    }
+}
+
+/* Mobile phones (max 576px) */
+@media (max-width: 576px) {
+    .fashion-evolution-section {
+        padding: 50px 0;
+    }
+
+    .characteristics-section {
+        padding: 30px 0 0 0;
+    }
+
+    .evolution-title {
+        font-size: 2rem;
+    }
+
+    .evolution-subtitle {
+        font-size: 1rem;
+    }
+
+    .evolution-description {
+        font-size: 0.95rem;
+    }
+
+    .characteristics-content {
+        padding: 15px;
+    }
+
+    .characteristics-wrapper {
+        padding: 20px 15px;
+    }
+
+    .characteristics-heading {
+        font-size: 1.3rem;
+    }
+
+    .heading-underline {
+        width: 50px;
+        height: 3px;
+    }
+
+    .characteristics-list {
+        margin-bottom: 20px;
+    }
+
+    .characteristics-list li {
+        font-size: 0.9rem;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    .list-icon {
+        font-size: 1.1rem;
+        margin-right: 8px;
+    }
+
+    .btn-explore {
+        padding: 10px 30px;
+        font-size: 0.95rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Products Section */
+.products-section {
+    padding: 0 0 100px 0;
+    background-color: #f5f5f5;
+}
+
+.products-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.products-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    line-height: 1.2;
+}
+
+.products-description {
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.8;
+    max-width: 100%;
+    margin-bottom: 60px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.category-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+}
+
+.category-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(102, 187, 106, 0);
+    transition: background 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.category-card:hover::after {
+    background: rgba(102, 187, 106, 0.05);
+}
+
+.category-card:hover .category-name {
+    color: var(--primary-color);
+}
+
+.category-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333333;
+    text-align: center;
+    padding: 15px 15px 20px;
+    margin: 0;
+}
+
+.category-swiper {
+    width: 100%;
+    height: 350px;
+    position: relative;
+}
+
+.category-product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Category Swiper Navigation Arrows */
+.category-swiper .swiper-button-next,
+.category-swiper .swiper-button-prev {
+    color: #2c4a8a;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.category-card:hover .category-swiper .swiper-button-next,
+.category-card:hover .category-swiper .swiper-button-prev {
+    opacity: 1;
+}
+
+.category-swiper .swiper-button-next:after,
+.category-swiper .swiper-button-prev:after {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.category-swiper .swiper-button-next:hover,
+.category-swiper .swiper-button-prev:hover {
+    background-color: #2c4a8a;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.category-swiper .swiper-button-next {
+    right: 10px;
+}
+
+.category-swiper .swiper-button-prev {
+    left: 10px;
+}
+
+/* Category Swiper Pagination Dots */
+.category-swiper .swiper-pagination {
+    bottom: 10px !important;
+}
+
+.category-swiper .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: #cccccc;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.category-swiper .swiper-pagination-bullet-active {
+    background-color: #2c4a8a;
+    width: 20px;
+    border-radius: 4px;
+}
+
+/* Responsive Styles for Products Section */
+@media (max-width: 1200px) {
+    .products-section .container-fluid {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .products-title {
+        font-size: 3rem;
+    }
+
+    .category-swiper {
+        height: 320px;
+    }
+}
+
+@media (max-width: 992px) {
+    .products-section {
+        padding: 0 0 80px 0;
+    }
+
+    .products-section .container-fluid {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .products-title {
+        font-size: 2.5rem;
+        padding-top: 60px;
+    }
+
+    .products-description {
+        font-size: 1rem;
+    }
+
+    .category-swiper {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-section {
+        padding: 0 0 60px 0;
+    }
+
+    .products-section .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .products-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        padding-top: 40px;
+    }
+
+    .products-description {
+        font-size: 0.95rem;
+        margin-bottom: 40px;
+    }
+
+    .category-swiper {
+        height: 280px;
+    }
+
+    .category-name {
+        font-size: 1rem;
+        padding: 10px 10px 15px;
+    }
+
+    .category-swiper .swiper-button-next,
+    .category-swiper .swiper-button-prev {
+        width: 30px;
+        height: 30px;
+    }
+
+    .category-swiper .swiper-button-next:after,
+    .category-swiper .swiper-button-prev:after {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .products-section .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .products-title {
+        font-size: 1.75rem;
+    }
+
+    .category-swiper {
+        height: 250px;
+    }
+
+    .category-swiper .swiper-button-next,
+    .category-swiper .swiper-button-prev {
+        width: 25px;
+        height: 25px;
+    }
+
+    .category-swiper .swiper-button-next:after,
+    .category-swiper .swiper-button-prev:after {
+        font-size: 12px;
+    }
+}
+
+/* Footer Section - Modern Redesign */
+.footer-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 80px 0 0;
+    color: #e8e8e8;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, #4caf50 50%, var(--primary-color) 100%);
+}
+
+.footer-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-main {
+    padding-bottom: 50px;
+}
+
+/* Footer Logo */
+.footer-logo {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo img {
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover img {
+    transform: scale(1.1);
+}
+
+.footer-logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.footer-description {
+    font-size: 1rem;
+    color: #b8b8b8;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+/* Footer Headings */
+.footer-heading {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.footer-heading-main {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-heading-main::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), #4caf50);
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+    background: var(--primary-color);
+    transform: translateY(-5px) rotate(5deg);
+    box-shadow: 0 10px 25px rgba(102, 187, 106, 0.4);
+    color: #ffffff;
+    border-color: var(--primary-color);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Footer Contact Button */
+.footer-contact {
+    margin-top: 35px;
+}
+
+.btn-footer-email {
+    display: inline-block;
+    padding: 14px 35px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #4caf50 100%);
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(102, 187, 106, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-footer-email::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-footer-email:hover::before {
+    left: 100%;
+}
+
+.btn-footer-email:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 187, 106, 0.5);
+}
+
+/* Office Locations */
+.office-location {
+    margin-bottom: 35px;
+}
+
+.office-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(102, 187, 106, 0.1);
+    border-radius: 5px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.office-address {
+    font-size: 0.95rem;
+    color: #d0d0d0;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.office-email {
+    font-size: 0.95rem;
+    color: #b8b8b8;
+    margin-bottom: 20px;
+}
+
+.office-email a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.office-email a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.office-item {
+    font-size: 0.95rem;
+    color: #d0d0d0;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    padding-left: 15px;
+    border-left: 2px solid transparent;
+}
+
+.office-item:hover {
+    border-left-color: var(--primary-color);
+    padding-left: 20px;
+}
+
+.office-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.office-item strong {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.office-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+.office-item a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Quick Links */
+.footer-quick-links {
+    margin-bottom: 0;
+}
+
+.quick-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-links-list li {
+    margin-bottom: 12px;
+}
+
+.quick-links-list a {
+    color: #d0d0d0;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    padding-left: 25px;
+    font-weight: 300;
+}
+
+.quick-links-list a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.quick-links-list a:hover {
+    color: #ffffff;
+    padding-left: 30px;
+    font-weight: 500;
+}
+
+.quick-links-list a:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 25px 0;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.footer-copyright,
+.footer-credit {
+    font-size: 0.9rem;
+    color: #b8b8b8;
+    margin: 0;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.footer-credit {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-copyright a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-copyright a:hover {
+    color: #ffffff;
+}
+
+/* Responsive Styles for Footer */
+@media (max-width: 1200px) {
+    .footer-section .container-fluid,
+    .footer-bottom .container-fluid {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .footer-logo-text {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer-section {
+        padding: 60px 0 0;
+    }
+
+    .footer-section .container-fluid,
+    .footer-bottom .container-fluid {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .footer-main {
+        padding-bottom: 40px;
+    }
+
+    .footer-logo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .footer-logo-text {
+        font-size: 1.4rem;
+    }
+
+    .footer-heading-main {
+        font-size: 1.15rem;
+    }
+
+    .footer-heading-main::after {
+        width: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 50px 0 0;
+    }
+
+    .footer-section .container-fluid,
+    .footer-bottom .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .footer-main {
+        text-align: center;
+    }
+
+    .footer-logo {
+        align-items: center;
+    }
+
+    .footer-heading::after,
+    .footer-heading-main::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .office-item {
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    .quick-links-list {
+        text-align: center;
+    }
+
+    .quick-links-list a {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        text-align: center;
+    }
+
+    .footer-bottom .text-md-end {
+        text-align: center !important;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-section {
+        padding: 40px 0 0;
+    }
+
+    .footer-section .container-fluid,
+    .footer-bottom .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .footer-logo-text {
+        font-size: 1.2rem;
+    }
+
+    .footer-heading-main {
+        font-size: 1rem;
+    }
+
+    .footer-description {
+        font-size: 0.9rem;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .btn-footer-email {
+        padding: 12px 25px;
+        font-size: 0.85rem;
+    }
+
+    .office-item {
+        font-size: 0.85rem;
+        padding-left: 8px;
+    }
+
+    .quick-links-list a {
+        font-size: 0.9rem;
+    }
+
+    .footer-copyright,
+    .footer-credit {
+        font-size: 0.8rem;
+    }
+}
+
+/* Category Page Styles */
+.category-page-section {
+    padding: 120px 0 80px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.category-page-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.category-page-header {
+    margin-bottom: 50px;
+    padding: 30px;
+    border-bottom: 2px solid #e0e0e0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.category-page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.product-item {
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-image-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    cursor: crosshair;
+}
+
+.magnify-wrapper {
+    position: relative;
+}
+
+.magnify-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-info {
+    padding: 25px;
+}
+
+.product-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.product-subtitle {
+    font-size: 1rem;
+    color: #666666;
+    margin: 0;
+}
+
+/* Magnifying Glass Styles */
+.magnify-container {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    z-index: 9999;
+    display: none;
+    overflow: hidden;
+    background: #fff;
+}
+
+.magnify-glass {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: none;
+}
+
+/* Responsive Styles for Category Page */
+@media (max-width: 1200px) {
+    .category-page-section .container-fluid {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .product-image-container {
+        height: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .category-page-section {
+        padding: 100px 0 60px;
+    }
+
+    .category-page-section .container-fluid {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .category-page-title {
+        font-size: 2.5rem;
+    }
+
+    .product-image-container {
+        height: 300px;
+    }
+
+    .magnify-container {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .category-page-section .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .category-page-title {
+        font-size: 2rem;
+    }
+
+    .product-image-container {
+        height: 250px;
+    }
+
+    .product-info {
+        padding: 20px;
+    }
+
+    .magnify-container {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-page-section .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .category-page-title {
+        font-size: 1.75rem;
+    }
+
+    .product-image-container {
+        height: 200px;
+    }
+
+    .magnify-container {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Sustainability Page Styles */
+
+/* Sustainability Page Navbar */
+.sustainability-page-navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sustainability-page-navbar .nav-link,
+.sustainability-page-navbar.scrolled .nav-link {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.sustainability-page-navbar .nav-link:hover,
+.sustainability-page-navbar.scrolled .nav-link:hover {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.sustainability-page-navbar .nav-link.active {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.sustainability-page-navbar .nav-link::after {
+    display: none;
+}
+
+.sustainability-page-navbar .dropdown-toggle,
+.sustainability-page-navbar.scrolled .dropdown-toggle {
+    color: var(--primary-color) !important;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.sustainability-page-navbar .dropdown-toggle:hover,
+.sustainability-page-navbar .dropdown-toggle.active,
+.sustainability-page-navbar.scrolled .dropdown-toggle:hover,
+.sustainability-page-navbar.scrolled .dropdown-toggle.active {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.sustainability-page-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(102, 187, 106, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Sustainability Hero Section with Zoom Effect */
+.sustainability-hero-section {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sustainability-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-zoom-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: heroZoomIn 20s ease-in-out infinite alternate;
+    transform-origin: center center;
+}
+
+@keyframes heroZoomIn {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+.sustainability-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 80px;
+}
+
+.sustainability-hero-title {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* Sustainability Intro Section */
+.sustainability-intro-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.sustainability-intro-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.sustainability-intro-content {
+    padding-right: 40px;
+}
+
+.sustainability-intro-images {
+    padding-left: 20px;
+}
+
+.sustainability-image-box {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.sustainability-image-box:hover {
+    transform: translateY(-5px);
+}
+
+.sustainability-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.sustainability-image-box:hover img {
+    transform: scale(1.05);
+}
+
+/* Sustainability Section Titles and Text */
+.sustainability-section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+.sustainability-subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2c4a8a;
+    margin-bottom: 20px;
+}
+
+.sustainability-section-text {
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Green Quote Banners */
+.sustainability-quote-banner-1 {
+    padding: 60px 0;
+    background: var(--primary-gradient);
+    margin: 0;
+}
+
+.sustainability-quote-text {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Sustainability Principles Section */
+.sustainability-principles-section {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+}
+
+.sustainability-principles-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.principles-diagram {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.principles-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.principles-icon {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.principles-center h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.principles-item {
+    position: absolute;
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    text-align: center;
+    max-width: 200px;
+}
+
+.principles-item h5 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.principles-item p {
+    font-size: 0.85rem;
+    color: #666666;
+    margin: 5px 0;
+}
+
+.principles-top-left {
+    top: 10%;
+    left: 5%;
+}
+
+.principles-top-right {
+    top: 10%;
+    right: 5%;
+}
+
+.principles-bottom-left {
+    bottom: 10%;
+    left: 5%;
+}
+
+.principles-bottom-right {
+    bottom: 10%;
+    right: 5%;
+}
+
+.sustainability-principles-content {
+    padding-left: 40px;
+}
+
+/* Sustainability Standards Section */
+.sustainability-standards-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.sustainability-standards-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.sustainability-standards-content {
+    padding-right: 40px;
+}
+
+.sustainability-standards-image {
+    padding-left: 20px;
+}
+
+/* Sustainability Partnering Section */
+.sustainability-partnering-section {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+}
+
+.sustainability-partnering-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.sustainability-partnering-image {
+    padding-right: 40px;
+}
+
+.sustainability-partnering-content {
+    padding-left: 40px;
+}
+
+/* Green Banner with Image */
+.sustainability-quote-banner-2 {
+    padding: 80px 0;
+    background: var(--primary-gradient);
+    margin: 0;
+}
+
+.banner-image-wrapper {
+    margin-top: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.banner-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Redefining Fashion Section */
+.sustainability-redefining-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.sustainability-redefining-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.sustainability-redefining-content {
+    padding-right: 40px;
+}
+
+.sustainability-redefining-image {
+    padding-left: 20px;
+}
+
+/* Carbon Footprint Section */
+.sustainability-carbon-section {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+}
+
+.sustainability-carbon-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.sustainability-carbon-content {
+    padding-right: 40px;
+}
+
+.sustainability-carbon-box {
+    position: relative;
+}
+
+.carbon-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 20px;
+    color: #ffffff;
+}
+
+.carbon-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Circularity Section */
+.sustainability-circularity-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.sustainability-circularity-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.sustainability-circularity-content {
+    padding-right: 40px;
+}
+
+.sustainability-circularity-image {
+    padding-left: 20px;
+}
+
+/* Light Blue Banner */
+.sustainability-light-banner {
+    padding: 60px 0;
+    background-color: #e3f2fd;
+    margin: 0;
+}
+
+.sustainability-light-quote {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #2c4a8a;
+    margin: 0;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Call to Action Section */
+.sustainability-cta-section {
+    position: relative;
+    padding: 120px 0;
+    overflow: hidden;
+}
+
+.sustainability-cta-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.cta-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+.sustainability-cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.sustainability-cta-content {
+    position: relative;
+    z-index: 3;
+}
+
+.sustainability-cta-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.sustainability-cta-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.btn-sustainability-cta {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #000000;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-sustainability-cta:hover {
+    background-color: #333333;
+    border-color: #333333;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Styles for Sustainability Page */
+@media (max-width: 1200px) {
+    .sustainability-hero-title {
+        font-size: 4rem;
+    }
+
+    .sustainability-section-title {
+        font-size: 2.2rem;
+    }
+
+    .sustainability-intro-section .container-fluid,
+    .sustainability-principles-section .container-fluid,
+    .sustainability-standards-section .container-fluid,
+    .sustainability-partnering-section .container-fluid,
+    .sustainability-redefining-section .container-fluid,
+    .sustainability-carbon-section .container-fluid,
+    .sustainability-circularity-section .container-fluid {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .sustainability-hero-section {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .sustainability-hero-title {
+        font-size: 3rem;
+    }
+
+    .sustainability-section-title {
+        font-size: 2rem;
+    }
+
+    .sustainability-intro-section,
+    .sustainability-principles-section,
+    .sustainability-standards-section,
+    .sustainability-partnering-section,
+    .sustainability-redefining-section,
+    .sustainability-carbon-section,
+    .sustainability-circularity-section {
+        padding: 80px 0;
+    }
+
+    .sustainability-intro-section .container-fluid,
+    .sustainability-principles-section .container-fluid,
+    .sustainability-standards-section .container-fluid,
+    .sustainability-partnering-section .container-fluid,
+    .sustainability-redefining-section .container-fluid,
+    .sustainability-carbon-section .container-fluid,
+    .sustainability-circularity-section .container-fluid {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .sustainability-intro-content,
+    .sustainability-standards-content,
+    .sustainability-redefining-content,
+    .sustainability-carbon-content,
+    .sustainability-circularity-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .sustainability-intro-images,
+    .sustainability-standards-image,
+    .sustainability-redefining-image,
+    .sustainability-circularity-image {
+        padding-left: 0;
+    }
+
+    .sustainability-partnering-image {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .sustainability-partnering-content {
+        padding-left: 0;
+    }
+
+    .sustainability-principles-content {
+        padding-left: 0;
+        margin-top: 30px;
+    }
+
+    .principles-diagram {
+        height: 400px;
+    }
+
+    .sustainability-quote-text {
+        font-size: 1.5rem;
+    }
+
+    .sustainability-cta-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sustainability-hero-section {
+        height: 50vh;
+        min-height: 350px;
+    }
+
+    .sustainability-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .sustainability-hero-content {
+        padding-bottom: 50px;
+    }
+
+    .sustainability-section-title {
+        font-size: 1.75rem;
+    }
+
+    .sustainability-intro-section,
+    .sustainability-principles-section,
+    .sustainability-standards-section,
+    .sustainability-partnering-section,
+    .sustainability-redefining-section,
+    .sustainability-carbon-section,
+    .sustainability-circularity-section {
+        padding: 60px 0;
+    }
+
+    .sustainability-intro-section .container-fluid,
+    .sustainability-principles-section .container-fluid,
+    .sustainability-standards-section .container-fluid,
+    .sustainability-partnering-section .container-fluid,
+    .sustainability-redefining-section .container-fluid,
+    .sustainability-carbon-section .container-fluid,
+    .sustainability-circularity-section .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .principles-diagram {
+        height: 350px;
+        padding: 30px;
+    }
+
+    .principles-item {
+        max-width: 150px;
+        padding: 10px 15px;
+    }
+
+    .principles-item h5 {
+        font-size: 0.8rem;
+    }
+
+    .principles-item p {
+        font-size: 0.75rem;
+    }
+
+    .sustainability-quote-text {
+        font-size: 1.3rem;
+    }
+
+    .sustainability-light-quote {
+        font-size: 1.2rem;
+    }
+
+    .sustainability-cta-title {
+        font-size: 1.75rem;
+    }
+
+    .sustainability-cta-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .sustainability-hero-section {
+        height: 40vh;
+        min-height: 300px;
+    }
+
+    .sustainability-hero-title {
+        font-size: 2rem;
+    }
+
+    .sustainability-section-title {
+        font-size: 1.5rem;
+    }
+
+    .sustainability-section-text {
+        font-size: 1rem;
+    }
+
+    .sustainability-intro-section .container-fluid,
+    .sustainability-principles-section .container-fluid,
+    .sustainability-standards-section .container-fluid,
+    .sustainability-partnering-section .container-fluid,
+    .sustainability-redefining-section .container-fluid,
+    .sustainability-carbon-section .container-fluid,
+    .sustainability-circularity-section .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .principles-diagram {
+        height: 300px;
+        padding: 20px;
+    }
+
+    .principles-icon {
+        font-size: 3rem;
+    }
+
+    .principles-center h4 {
+        font-size: 1rem;
+    }
+
+    .principles-item {
+        max-width: 120px;
+        padding: 8px 10px;
+    }
+
+    .sustainability-quote-text {
+        font-size: 1.1rem;
+    }
+
+    .sustainability-light-quote {
+        font-size: 1rem;
+    }
+
+    .sustainability-cta-title {
+        font-size: 1.5rem;
+    }
+
+    .sustainability-cta-section {
+        padding: 80px 0;
+    }
+
+    .btn-sustainability-cta {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* Ethical Sourcing Page Styles */
+
+/* Ethical Page Navbar */
+.ethical-page-navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ethical-page-navbar .nav-link,
+.ethical-page-navbar.scrolled .nav-link {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.ethical-page-navbar .nav-link:hover,
+.ethical-page-navbar.scrolled .nav-link:hover {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.ethical-page-navbar .nav-link.active {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.ethical-page-navbar .nav-link::after {
+    display: none;
+}
+
+.ethical-page-navbar .dropdown-toggle,
+.ethical-page-navbar.scrolled .dropdown-toggle {
+    color: var(--primary-color) !important;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.ethical-page-navbar .dropdown-toggle:hover,
+.ethical-page-navbar .dropdown-toggle.active,
+.ethical-page-navbar.scrolled .dropdown-toggle:hover,
+.ethical-page-navbar.scrolled .dropdown-toggle.active {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.ethical-page-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(102, 187, 106, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Ethical Hero Section with Zoom Effect */
+.ethical-hero-section {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ethical-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.ethical-hero-section .hero-zoom-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: heroZoomIn 20s ease-in-out infinite alternate;
+    transform-origin: center center;
+}
+
+.ethical-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 80px;
+}
+
+.ethical-hero-title {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 0;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+/* Ethical Intro Section */
+.ethical-intro-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.ethical-intro-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.ethical-intro-text {
+    margin-bottom: 40px;
+}
+
+.ethical-section-text {
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.ethical-image-box {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+    min-height: 300px;
+}
+
+.ethical-image-box:hover {
+    transform: translateY(-5px);
+}
+
+.ethical-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.ethical-image-box:hover img {
+    transform: scale(1.05);
+}
+
+/* Ethical Section Titles */
+.ethical-section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+/* Green Quote Banner */
+.ethical-quote-banner {
+    padding: 60px 0;
+    background: var(--primary-gradient);
+    margin: 0;
+}
+
+.ethical-quote-text {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Ethical Commitment Section */
+.ethical-commitment-section {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+}
+
+.ethical-commitment-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.ethical-commitment-content {
+    padding-right: 40px;
+}
+
+.ethical-commitment-image {
+    padding-left: 20px;
+}
+
+/* Environmental Responsibility Section */
+.ethical-environmental-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.ethical-environmental-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.ethical-environmental-image {
+    padding-right: 40px;
+}
+
+.ethical-environmental-content {
+    padding-left: 40px;
+}
+
+/* Social Engagement Section */
+.ethical-social-section {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+}
+
+.ethical-social-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.ethical-social-content {
+    padding-right: 40px;
+}
+
+.ethical-social-image {
+    padding-left: 20px;
+}
+
+/* Certifications Section */
+.ethical-certifications-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.ethical-certifications-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.ethical-certifications-content {
+    padding-right: 40px;
+}
+
+.ethical-certifications-image {
+    padding-left: 20px;
+}
+
+/* Certifications Grid */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+}
+
+.certification-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+}
+
+.certification-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.certification-logo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Continuous Improvement Section */
+.ethical-improvement-section {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+}
+
+.ethical-improvement-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.ethical-improvement-image {
+    padding-right: 40px;
+}
+
+.ethical-improvement-content {
+    padding-left: 40px;
+}
+
+/* Call to Action Section */
+.ethical-cta-section {
+    position: relative;
+    padding: 120px 0;
+    overflow: hidden;
+}
+
+.ethical-cta-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.ethical-cta-section .cta-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+.ethical-cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.ethical-cta-content {
+    position: relative;
+    z-index: 3;
+}
+
+.ethical-cta-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.ethical-cta-subtitle {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.btn-ethical-cta {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #000000;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-ethical-cta:hover {
+    background-color: #333333;
+    border-color: #333333;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Styles for Ethical Sourcing Page */
+@media (max-width: 1200px) {
+    .ethical-hero-title {
+        font-size: 3.5rem;
+    }
+
+    .ethical-section-title {
+        font-size: 2.2rem;
+    }
+
+    .ethical-intro-section .container-fluid,
+    .ethical-commitment-section .container-fluid,
+    .ethical-environmental-section .container-fluid,
+    .ethical-social-section .container-fluid,
+    .ethical-certifications-section .container-fluid,
+    .ethical-improvement-section .container-fluid {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .certifications-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .ethical-hero-section {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .ethical-hero-title {
+        font-size: 3rem;
+    }
+
+    .ethical-section-title {
+        font-size: 2rem;
+    }
+
+    .ethical-intro-section,
+    .ethical-commitment-section,
+    .ethical-environmental-section,
+    .ethical-social-section,
+    .ethical-certifications-section,
+    .ethical-improvement-section {
+        padding: 80px 0;
+    }
+
+    .ethical-intro-section .container-fluid,
+    .ethical-commitment-section .container-fluid,
+    .ethical-environmental-section .container-fluid,
+    .ethical-social-section .container-fluid,
+    .ethical-certifications-section .container-fluid,
+    .ethical-improvement-section .container-fluid {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .ethical-commitment-content,
+    .ethical-environmental-content,
+    .ethical-social-content,
+    .ethical-certifications-content,
+    .ethical-improvement-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .ethical-commitment-image,
+    .ethical-social-image,
+    .ethical-certifications-image {
+        padding-left: 0;
+    }
+
+    .ethical-environmental-image {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .ethical-improvement-image {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .certifications-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        padding: 30px 20px;
+    }
+
+    .ethical-quote-text {
+        font-size: 1.5rem;
+    }
+
+    .ethical-cta-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ethical-hero-section {
+        height: 50vh;
+        min-height: 350px;
+    }
+
+    .ethical-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .ethical-hero-content {
+        padding-bottom: 50px;
+    }
+
+    .ethical-section-title {
+        font-size: 1.75rem;
+    }
+
+    .ethical-intro-section,
+    .ethical-commitment-section,
+    .ethical-environmental-section,
+    .ethical-social-section,
+    .ethical-certifications-section,
+    .ethical-improvement-section {
+        padding: 60px 0;
+    }
+
+    .ethical-intro-section .container-fluid,
+    .ethical-commitment-section .container-fluid,
+    .ethical-environmental-section .container-fluid,
+    .ethical-social-section .container-fluid,
+    .ethical-certifications-section .container-fluid,
+    .ethical-improvement-section .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px 15px;
+    }
+
+    .certification-item {
+        min-height: 100px;
+        padding: 20px 15px;
+    }
+
+    .certification-logo {
+        font-size: 0.9rem;
+    }
+
+    .ethical-quote-text {
+        font-size: 1.3rem;
+    }
+
+    .ethical-cta-title {
+        font-size: 1.75rem;
+    }
+
+    .ethical-cta-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .ethical-hero-section {
+        height: 40vh;
+        min-height: 300px;
+    }
+
+    .ethical-hero-title {
+        font-size: 2rem;
+    }
+
+    .ethical-section-title {
+        font-size: 1.5rem;
+    }
+
+    .ethical-section-text {
+        font-size: 1rem;
+    }
+
+    .ethical-intro-section .container-fluid,
+    .ethical-commitment-section .container-fluid,
+    .ethical-environmental-section .container-fluid,
+    .ethical-social-section .container-fluid,
+    .ethical-certifications-section .container-fluid,
+    .ethical-improvement-section .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .ethical-quote-text {
+        font-size: 1.1rem;
+    }
+
+    .ethical-cta-title {
+        font-size: 1.5rem;
+    }
+
+    .ethical-cta-section {
+        padding: 80px 0;
+    }
+
+    .btn-ethical-cta {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* Manufacturing Excellence Page Styles */
+
+/* Manufacturing Page Navbar */
+.manufacturing-page-navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.manufacturing-page-navbar .nav-link,
+.manufacturing-page-navbar.scrolled .nav-link {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.manufacturing-page-navbar .nav-link:hover,
+.manufacturing-page-navbar.scrolled .nav-link:hover {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.manufacturing-page-navbar .nav-link.active {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.manufacturing-page-navbar .nav-link::after {
+    display: none;
+}
+
+.manufacturing-page-navbar .dropdown-toggle,
+.manufacturing-page-navbar.scrolled .dropdown-toggle {
+    color: var(--primary-color) !important;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.manufacturing-page-navbar .dropdown-toggle:hover,
+.manufacturing-page-navbar .dropdown-toggle.active,
+.manufacturing-page-navbar.scrolled .dropdown-toggle:hover,
+.manufacturing-page-navbar.scrolled .dropdown-toggle.active {
+    color: var(--primary-color) !important;
+    border-bottom-color: var(--primary-color);
+}
+
+.manufacturing-page-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(102, 187, 106, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Manufacturing Hero Section with Zoom Effect */
+.manufacturing-hero-section {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.manufacturing-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.manufacturing-hero-section .hero-zoom-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: heroZoomIn 20s ease-in-out infinite alternate;
+    transform-origin: center center;
+}
+
+.manufacturing-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 80px;
+}
+
+.manufacturing-hero-title {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    margin: 0;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+/* Manufacturing Welcome Section */
+.manufacturing-welcome-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.manufacturing-welcome-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.manufacturing-section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+.manufacturing-section-text {
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.manufacturing-image-box {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+    min-height: 300px;
+}
+
+.manufacturing-image-box:hover {
+    transform: translateY(-5px);
+}
+
+.manufacturing-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.manufacturing-image-box:hover img {
+    transform: scale(1.05);
+}
+
+.manufacturing-mission-quote {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c4a8a;
+    margin: 0;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* Manufacturing Services Section */
+.manufacturing-services-section {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+}
+
+.manufacturing-services-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.manufacturing-services-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.manufacturing-subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2c4a8a;
+    margin-bottom: 20px;
+}
+
+.manufacturing-services-content {
+    padding-right: 40px;
+}
+
+.manufacturing-services-image {
+    padding-left: 20px;
+}
+
+.manufacturing-services-quote {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c4a8a;
+    margin-top: 30px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.manufacturing-image-subtitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c4a8a;
+    margin-bottom: 20px;
+}
+
+/* Production Control Section */
+.manufacturing-production-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.manufacturing-production-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.manufacturing-production-content {
+    padding-right: 40px;
+}
+
+.manufacturing-production-image {
+    padding-left: 20px;
+}
+
+/* Production Infographic */
+.production-infographic {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.infographic-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.infographic-logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.infographic-logo-sub {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.infographic-item {
+    position: absolute;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    text-align: center;
+    max-width: 180px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2c4a8a;
+}
+
+.infographic-top {
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.infographic-right-top {
+    top: 20%;
+    right: 5%;
+}
+
+.infographic-right-bottom {
+    top: 60%;
+    right: 5%;
+}
+
+.infographic-bottom-right {
+    bottom: 10%;
+    right: 20%;
+}
+
+.infographic-bottom-left {
+    bottom: 10%;
+    left: 20%;
+}
+
+.infographic-left-bottom {
+    top: 60%;
+    left: 5%;
+}
+
+/* Quality Assurance Section */
+.manufacturing-quality-section {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+}
+
+.manufacturing-quality-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.manufacturing-quality-content {
+    padding-left: 40px;
+}
+
+.manufacturing-quality-image {
+    padding-right: 40px;
+}
+
+.manufacturing-quality-quote-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #555555;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+/* Quality Philosophy Section */
+.manufacturing-philosophy-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.manufacturing-philosophy-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.philosophy-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 2px solid transparent;
+}
+
+.philosophy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.philosophy-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c4a8a;
+    margin-bottom: 15px;
+}
+
+.philosophy-card-text {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Fair Traceability Section */
+.manufacturing-traceability-section {
+    padding: 100px 0;
+    background-color: #f5f5f5;
+}
+
+.manufacturing-traceability-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.manufacturing-traceability-content {
+    padding-right: 40px;
+}
+
+.manufacturing-traceability-image {
+    padding-left: 20px;
+}
+
+/* Traceability Infographic */
+.traceability-infographic {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.traceability-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.traceability-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.traceability-center h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.traceability-item {
+    position: absolute;
+    padding: 12px 18px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    text-align: center;
+    max-width: 160px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2c4a8a;
+}
+
+.traceability-top {
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.traceability-right-top {
+    top: 20%;
+    right: 5%;
+}
+
+.traceability-right-bottom {
+    top: 60%;
+    right: 5%;
+}
+
+.traceability-bottom-right {
+    bottom: 10%;
+    right: 20%;
+}
+
+.traceability-bottom-left {
+    bottom: 10%;
+    left: 20%;
+}
+
+.traceability-left-bottom {
+    top: 60%;
+    left: 5%;
+}
+
+/* Shipping Section */
+.manufacturing-shipping-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.manufacturing-shipping-section .container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.manufacturing-shipping-content {
+    padding-left: 40px;
+}
+
+.manufacturing-shipping-image {
+    padding-right: 40px;
+}
+
+/* Bottom Section */
+.manufacturing-bottom-section {
+    position: relative;
+    padding: 120px 0;
+    overflow: hidden;
+}
+
+.manufacturing-bottom-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.bottom-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+.manufacturing-bottom-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.manufacturing-bottom-content {
+    position: relative;
+    z-index: 3;
+}
+
+.manufacturing-bottom-text {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.manufacturing-bottom-quote {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.4;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    font-style: italic;
+}
+
+/* Responsive Styles for Manufacturing Excellence Page */
+@media (max-width: 1200px) {
+    .manufacturing-hero-title {
+        font-size: 3.5rem;
+    }
+
+    .manufacturing-section-title {
+        font-size: 2.2rem;
+    }
+
+    .manufacturing-welcome-section .container-fluid,
+    .manufacturing-services-section .container-fluid,
+    .manufacturing-production-section .container-fluid,
+    .manufacturing-quality-section .container-fluid,
+    .manufacturing-philosophy-section .container-fluid,
+    .manufacturing-traceability-section .container-fluid,
+    .manufacturing-shipping-section .container-fluid {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .production-infographic,
+    .traceability-infographic {
+        height: 400px;
+    }
+}
+
+@media (max-width: 992px) {
+    .manufacturing-hero-section {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .manufacturing-hero-title {
+        font-size: 3rem;
+    }
+
+    .manufacturing-section-title {
+        font-size: 2rem;
+    }
+
+    .manufacturing-welcome-section,
+    .manufacturing-services-section,
+    .manufacturing-production-section,
+    .manufacturing-quality-section,
+    .manufacturing-philosophy-section,
+    .manufacturing-traceability-section,
+    .manufacturing-shipping-section {
+        padding: 80px 0;
+    }
+
+    .manufacturing-welcome-section .container-fluid,
+    .manufacturing-services-section .container-fluid,
+    .manufacturing-production-section .container-fluid,
+    .manufacturing-quality-section .container-fluid,
+    .manufacturing-philosophy-section .container-fluid,
+    .manufacturing-traceability-section .container-fluid,
+    .manufacturing-shipping-section .container-fluid {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .manufacturing-services-content,
+    .manufacturing-production-content,
+    .manufacturing-quality-content,
+    .manufacturing-traceability-content,
+    .manufacturing-shipping-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .manufacturing-services-image,
+    .manufacturing-production-image,
+    .manufacturing-quality-image,
+    .manufacturing-traceability-image,
+    .manufacturing-shipping-image {
+        padding-left: 0;
+    }
+
+    .manufacturing-quality-image {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .manufacturing-shipping-image {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .production-infographic,
+    .traceability-infographic {
+        height: 350px;
+        padding: 30px;
+    }
+
+    .infographic-center,
+    .traceability-center {
+        width: 120px;
+        height: 120px;
+    }
+
+    .infographic-item,
+    .traceability-item {
+        max-width: 140px;
+        font-size: 0.8rem;
+        padding: 10px 15px;
+    }
+
+    .manufacturing-mission-quote,
+    .manufacturing-services-quote {
+        font-size: 1.2rem;
+    }
+
+    .manufacturing-bottom-quote {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .manufacturing-hero-section {
+        height: 50vh;
+        min-height: 350px;
+    }
+
+    .manufacturing-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .manufacturing-hero-content {
+        padding-bottom: 50px;
+    }
+
+    .manufacturing-section-title {
+        font-size: 1.75rem;
+    }
+
+    .manufacturing-welcome-section,
+    .manufacturing-services-section,
+    .manufacturing-production-section,
+    .manufacturing-quality-section,
+    .manufacturing-philosophy-section,
+    .manufacturing-traceability-section,
+    .manufacturing-shipping-section {
+        padding: 60px 0;
+    }
+
+    .manufacturing-welcome-section .container-fluid,
+    .manufacturing-services-section .container-fluid,
+    .manufacturing-production-section .container-fluid,
+    .manufacturing-quality-section .container-fluid,
+    .manufacturing-philosophy-section .container-fluid,
+    .manufacturing-traceability-section .container-fluid,
+    .manufacturing-shipping-section .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .production-infographic,
+    .traceability-infographic {
+        height: 300px;
+        padding: 20px;
+    }
+
+    .infographic-center,
+    .traceability-center {
+        width: 100px;
+        height: 100px;
+    }
+
+    .infographic-logo {
+        font-size: 1rem;
+    }
+
+    .infographic-logo-sub {
+        font-size: 0.75rem;
+    }
+
+    .traceability-icon {
+        font-size: 2rem;
+    }
+
+    .traceability-center h4 {
+        font-size: 0.75rem;
+    }
+
+    .infographic-item,
+    .traceability-item {
+        max-width: 120px;
+        font-size: 0.75rem;
+        padding: 8px 12px;
+    }
+
+    .manufacturing-mission-quote,
+    .manufacturing-services-quote {
+        font-size: 1.1rem;
+    }
+
+    .manufacturing-bottom-quote {
+        font-size: 1.5rem;
+    }
+
+    .manufacturing-bottom-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .manufacturing-hero-section {
+        height: 40vh;
+        min-height: 300px;
+    }
+
+    .manufacturing-hero-title {
+        font-size: 2rem;
+    }
+
+    .manufacturing-section-title {
+        font-size: 1.5rem;
+    }
+
+    .manufacturing-section-text {
+        font-size: 1rem;
+    }
+
+    .manufacturing-welcome-section .container-fluid,
+    .manufacturing-services-section .container-fluid,
+    .manufacturing-production-section .container-fluid,
+    .manufacturing-quality-section .container-fluid,
+    .manufacturing-philosophy-section .container-fluid,
+    .manufacturing-traceability-section .container-fluid,
+    .manufacturing-shipping-section .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .production-infographic,
+    .traceability-infographic {
+        height: 250px;
+        padding: 15px;
+    }
+
+    .infographic-center,
+    .traceability-center {
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+    }
+
+    .infographic-logo {
+        font-size: 0.85rem;
+    }
+
+    .infographic-logo-sub {
+        font-size: 0.65rem;
+    }
+
+    .traceability-icon {
+        font-size: 1.5rem;
+    }
+
+    .traceability-center h4 {
+        font-size: 0.65rem;
+    }
+
+    .infographic-item,
+    .traceability-item {
+        max-width: 100px;
+        font-size: 0.7rem;
+        padding: 6px 10px;
+    }
+
+    .manufacturing-mission-quote,
+    .manufacturing-services-quote {
+        font-size: 1rem;
+    }
+
+    .manufacturing-bottom-quote {
+        font-size: 1.3rem;
+    }
+
+    .manufacturing-bottom-section {
+        padding: 80px 0;
+    }
+
+    .philosophy-card {
+        padding: 20px 15px;
+    }
+
+    .philosophy-card-title {
+        font-size: 1.1rem;
+    }
+
+    .philosophy-card-text {
+        font-size: 0.9rem;
+    }
+}
+
