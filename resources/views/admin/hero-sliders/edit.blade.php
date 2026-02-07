@@ -23,8 +23,8 @@
                         id="hero_image"
                         label="Slider Image (Change to replace)"
                         :value="$heroSlider->image"
-                        width="1200"
-                        height="600"
+                        width="943"
+                        height="530"
                     />
                     <div class="error-message text-danger small mt-1"></div>
                 </div>

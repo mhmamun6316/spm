@@ -131,6 +131,11 @@
     @endpush
 
     <style>
+        /* Swiper Navigation Size */
+        .heroSlider {
+            --swiper-navigation-size: 30px;
+        }
+
         .hero-section {
             position: relative;
             min-height: 100vh;
@@ -146,8 +151,9 @@
             width: 100%;
             height: 100%;
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
+            background-attachment: scroll;
         }
 
         .hero-overlay {
@@ -257,11 +263,42 @@
         }
 
         @media (max-width: 768px) {
+            .hero-section {
+                min-height: 70vh; /* Reduce height on mobile */
+            }
+
+            .hero-slide {
+                height: 70vh; /* Reduce slide height on mobile */
+            }
+
+            .hero-slide-bg {
+                background-size: cover;
+                background-position: center center; /* Ensure image is centered */
+                background-attachment: scroll;
+            }
+
             .hero-title {
                 font-size: 2.5rem;
             }
             .hero-subtitle {
                 font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section {
+                min-height: 60vh; /* Even smaller on very small screens */
+            }
+
+            .hero-slide {
+                height: 60vh;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
             }
         }
 
