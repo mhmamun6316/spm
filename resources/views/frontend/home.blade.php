@@ -610,7 +610,7 @@
                 <section class="home-content-section text-content py-5">
                     <div class="container">
                         <div class="row justify-content-{{ $content->text_position === 'center' ? 'center' : ($content->text_position === 'left' ? 'start' : 'end') }}">
-                            <div class="col-lg-{{ $content->text_position === 'center' ? '10' : '12' }}">
+                            <div class="col-lg-12">
                                 <div class="content-wrapper text-{{ $content->text_position === 'center' ? 'center' : $content->text_position }}">
                                     <h2 class="content-title" data-aos="fade-{{ $content->text_position === 'center' ? 'up' : ($content->text_position === 'left' ? 'right' : 'left') }}" data-aos-duration="1000">{{ $content->title }}</h2>
                                     <div class="content-description {{ $content->text_position === 'center' ? 'text-justify' : '' }}" data-aos="fade-{{ $content->text_position === 'center' ? 'up' : ($content->text_position === 'left' ? 'right' : 'left') }}" data-aos-delay="200" data-aos-duration="1000">
@@ -805,6 +805,23 @@
             </div>
         </section>
     @endif
+
+    {{-- Let's Work Together Section --}}
+    <section class="work-together-section">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="work-together-title" data-aos="fade-up">Let's Work Together ?</h2>
+                    <p class="work-together-text" data-aos="fade-up" data-aos-delay="200">
+                        If You Find Yourself Questioning, 'Is This The Best It Can Be?' Then Look No Further - We Are The Right Team To Assist You.
+                    </p>
+                    <a href="#footer" class="btn btn-contact-us" data-aos="fade-up" data-aos-delay="300">
+                        <i class="bi bi-envelope me-2"></i>Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
 
 @push('scripts')
@@ -889,4 +906,93 @@
         });
     });
 </script>
+@endpush
+
+@push('styles')
+<style>
+    /* Work Together Section */
+    .work-together-section {
+        background-color: #ffffff;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+    }
+
+
+    .work-together-title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #0C2E92;
+        margin-bottom: 25px;
+    }
+
+    .work-together-text {
+        font-size: 1.2rem;
+        color: #666666;
+        margin-bottom: 35px;
+        line-height: 1.8;
+    }
+
+    .btn-contact-us {
+        background-color: #dc3545;
+        color: #ffffff;
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 5px;
+        border: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .btn-contact-us:hover {
+        background-color: #c82333;
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+    }
+
+    .btn-contact-us i {
+        font-size: 1.2rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .work-together-title {
+            font-size: 2.5rem;
+        }
+
+        .work-together-text {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .work-together-section {
+            padding: 60px 0;
+        }
+
+        .work-together-title {
+            font-size: 2rem;
+        }
+
+        .work-together-text {
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        .btn-contact-us {
+            padding: 12px 30px;
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .work-together-title {
+            font-size: 1.75rem;
+        }
+    }
+</style>
 @endpush
