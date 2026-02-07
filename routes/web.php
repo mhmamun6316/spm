@@ -48,6 +48,7 @@ Route::get('/about/board-of-directors', [FrontendController::class, 'boardOfDire
 
 
 Route::get('/category/{slug?}', [FrontendController::class, 'category'])->name('category');
+Route::get('/product/{slug}', [FrontendController::class, 'productDetail'])->name('product.detail');
 Route::get('/service/{slug}', [FrontendController::class, 'service'])->name('service.show');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
@@ -96,7 +97,7 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Global Partners Routes
     Route::resource('global-partners', GlobalPartnerController::class);
     Route::post('/global-partners/{globalPartner}/toggle-status', [GlobalPartnerController::class, 'toggleStatus'])->name('global-partners.toggle-status');
-    
+
     Route::resource('certifications', CertificationController::class);
     Route::post('/certifications/{certification}/toggle-status', [CertificationController::class, 'toggleStatus'])->name('certifications.toggle-status');
 

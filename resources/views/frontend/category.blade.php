@@ -56,23 +56,25 @@
         <div class="row">
             @forelse($products as $index => $product)
             <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ 100 + ($index * 50) }}">
-                <div class="product-card">
-                    <div class="product-image-wrapper">
-                        @if($product->image)
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="product-image magnify-image">
-                        @else
-                            <img src="https://via.placeholder.com/400x500?text={{ urlencode($product->name) }}" alt="{{ $product->name }}" class="product-image magnify-image">
-                        @endif
-                        <div class="product-overlay">
-                            <div class="magnify-icon">
-                                <i class="fas fa-search-plus"></i>
+                <a href="{{ route('product.detail', $product->id) }}" class="text-decoration-none">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            @if($product->image)
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->title }}" class="product-image magnify-image">
+                            @else
+                                <img src="https://via.placeholder.com/400x500?text={{ urlencode($product->title) }}" alt="{{ $product->title }}" class="product-image magnify-image">
+                            @endif
+                            <div class="product-overlay">
+                                <div class="magnify-icon">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <p class="text-center fw-bold fs-4 mt-4">
-                    {{ $product->name }}
-                </p>
+                    <p class="text-center fw-bold fs-4 mt-4 text-dark">
+                        {{ $product->title }}
+                    </p>
+                </a>
             </div>
             @empty
             <div class="col-12 text-center py-5">

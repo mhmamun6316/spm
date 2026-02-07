@@ -65,12 +65,12 @@
                                     {{ $category->name }}
                                 </a>
                                 @php
-                                    $categoryProducts = $category->products()->where('status', 1)->get();
+                                    $categoryProducts = $category->products()->where('status', 'active')->get();
                                 @endphp
                                 @if($categoryProducts->count() > 0)
                                     <ul class="dropdown-menu submenu">
                                         @foreach($categoryProducts as $product)
-                                            <li><a class="dropdown-item" href="{{ route('category', \Illuminate\Support\Str::slug($category->name)) }}">{{ $product->name }}</a></li>
+                                            <li><a class="dropdown-item" href="{{ route('product.detail', $product->slug) }}">{{ $product->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 @endif

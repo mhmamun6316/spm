@@ -40,16 +40,16 @@ class FrontendController extends Controller
 
         // Get active Global Partners
         $globalPartners = GlobalPartner::where('is_active', 1)->get();
-        
+
         // Get active Satisfied Clients
         $satisfiedClients = SatisfiedClient::where('is_active', 1)->get();
-        
+
         // Get active Certifications
         $certifications = Certification::where('is_active', 1)->get();
-        
+
         // Get page content (mission, values, footer info)
         $pageContent = PageContent::first();
-        
+
         return view('frontend.home', compact('heroSliders', 'homeContents', 'categories', 'services', 'pageContent', 'globalPartners', 'satisfiedClients', 'certifications'));
     }
 
@@ -103,6 +103,24 @@ class FrontendController extends Controller
     {
         $service = Service::where('slug', $slug)->where('is_active', 1)->firstOrFail();
         return view('frontend.service', compact('service'));
+    }
+
+    public function productDetail($slug)
+    {
+        // Get the product with its category
+        $product = Product::with('category')
+            ->where('slug', $slug)
+            ->where('status', 'active')
+            ->firstOrFail();
+
+        // Get related products from the same category (excluding current product)
+        $relatedProducts = Product::where('product_category_id', $product->product_category_id)
+            ->where('id', '!=', $product->id)
+            ->where('status', 'active')
+            ->limit(4)
+            ->get();
+
+        return view('frontend.product', compact('product', 'relatedProducts'));
     }
 
 }

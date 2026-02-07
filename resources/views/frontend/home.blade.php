@@ -330,7 +330,6 @@
         }
 
         .content-description strong {
-            color: #0C2E92; /* Primary Blue for strong text */
             font-weight: 700;
         }
 
