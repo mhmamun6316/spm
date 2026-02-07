@@ -489,11 +489,116 @@
             color: white;
         }
 
-        /* Partners & Clients Hover Effect */
-        .partner-logo img:hover,
-        .client-logo img:hover {
+        /* Partners Hover Effect */
+        .partner-logo img:hover {
             filter: grayscale(0%) !important;
             transform: scale(1.1);
+        }
+
+        /* Global Partners, Certifications & Satisfied Clients Sections - Card Style */
+        .global-partners-section,
+        .certifications-section,
+        .satisfied-clients-section {
+            background-color: #f5f5f5;
+        }
+
+        /* Shared Card Style for Partners, Certifications, and Clients */
+        .partner-logo-card,
+        .certification-logo-card,
+        .client-logo-card {
+            width: 100%;
+            height: 159px;
+            background-color: #ffffff;
+            border-radius: 4px;
+            padding: 20px;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #C4C4C4FA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .partner-logo-card:hover,
+        .certification-logo-card:hover,
+        .client-logo-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .partner-logo-content,
+        .certification-logo-content,
+        .client-logo-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partner-logo-img,
+        .certification-logo-img,
+        .client-logo-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(0%);
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo-card:hover .partner-logo-img,
+        .certification-logo-card:hover .certification-logo-img,
+        .client-logo-card:hover .client-logo-img {
+            transform: scale(1.05);
+        }
+
+        .partners-swiper,
+        .certifications-swiper,
+        .clients-swiper {
+            padding: 20px 0;
+        }
+
+        .partners-swiper .swiper-slide,
+        .certifications-swiper .swiper-slide,
+        .clients-swiper .swiper-slide {
+            height: auto;
+            display: flex;
+            align-items: stretch;
+            width: 100%;
+        }
+
+        .partners-swiper .swiper-wrapper,
+        .certifications-swiper .swiper-wrapper,
+        .clients-swiper .swiper-wrapper {
+            display: flex;
+            align-items: stretch;
+        }
+
+        /* Ensure equal width for all slides */
+        .partners-swiper .swiper-slide > *,
+        .certifications-swiper .swiper-slide > *,
+        .clients-swiper .swiper-slide > * {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .partner-logo-card,
+            .certification-logo-card,
+            .client-logo-card {
+                height: 140px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .partner-logo-card,
+            .certification-logo-card,
+            .client-logo-card {
+                height: 120px;
+                padding: 12px;
+            }
         }
     </style>
 
@@ -634,16 +739,41 @@
 
     {{-- Global Partners Section --}}
     @if($globalPartners && $globalPartners->count() > 0)
-        <section class="global-partners-section py-5" style="background-color: #E5E5E5;">
+        <section class="global-partners-section">
             <div class="container py-4">
                 <h2 class="text-center section-heading text-uppercase mb-5 text-primary fw-bold" style="color: #0C2E92 !important;">OUR GLOBAL PARTNER</h2>
 
                 <div class="swiper partners-swiper">
                     <div class="swiper-wrapper align-items-center">
                         @foreach($globalPartners as $partner)
-                            <div class="swiper-slide text-center">
-                                <div class="partner-logo px-3">
-                                    <img src="{{ asset('storage/' . $partner->image) }}" alt="{{ $partner->name }}" class="img-fluid" style="max-height: 80px; filter: grayscale(100%); transition: all 0.3s ease;">
+                            <div class="swiper-slide">
+                                <div class="partner-logo-card">
+                                    <div class="partner-logo-content">
+                                        <img src="{{ asset('storage/' . $partner->image) }}" alt="{{ $partner->name }}" class="partner-logo-img">
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+
+    {{-- Our Certifications Section --}}
+    @if(isset($certifications) && $certifications->count() > 0)
+        <section class="certifications-section">
+            <div class="container py-4">
+                <h2 class="text-center section-heading text-uppercase mb-5 text-primary fw-bold" style="color: #0C2E92 !important;">Our Certifications</h2>
+
+                <div class="swiper certifications-swiper">
+                    <div class="swiper-wrapper align-items-center">
+                        @foreach($certifications as $certification)
+                            <div class="swiper-slide">
+                                <div class="certification-logo-card">
+                                    <div class="certification-logo-content">
+                                        <img src="{{ asset('storage/' . $certification->image) }}" alt="{{ $certification->name }}" class="certification-logo-img">
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
@@ -655,16 +785,18 @@
 
     {{-- Satisfied Clients Section --}}
     @if($satisfiedClients && $satisfiedClients->count() > 0)
-        <section class="satisfied-clients-section py-5 bg-white">
+        <section class="satisfied-clients-section">
             <div class="container py-4">
                 <h2 class="text-center section-heading text-uppercase mb-5 text-primary fw-bold" style="color: #0C2E92 !important;">Our Happy Customers</h2>
 
                 <div class="swiper clients-swiper">
                     <div class="swiper-wrapper align-items-center">
                         @foreach($satisfiedClients as $client)
-                            <div class="swiper-slide text-center">
-                                <div class="client-logo px-3">
-                                    <img src="{{ asset('storage/' . $client->image) }}" alt="{{ $client->name }}" class="img-fluid" style="max-height: 80px; filter: grayscale(0%); transition: all 0.3s ease;">
+                            <div class="swiper-slide">
+                                <div class="client-logo-card">
+                                    <div class="client-logo-content">
+                                        <img src="{{ asset('storage/' . $client->image) }}" alt="{{ $client->name }}" class="client-logo-img">
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
@@ -682,7 +814,7 @@
         // Partners Swiper
         new Swiper('.partners-swiper', {
             slidesPerView: 2,
-            spaceBetween: 30,
+            spaceBetween: 20,
             loop: true,
             autoplay: {
                 delay: 2500,
@@ -691,20 +823,50 @@
             breakpoints: {
                 640: {
                     slidesPerView: 3,
+                    spaceBetween: 20,
                 },
                 768: {
                     slidesPerView: 4,
+                    spaceBetween: 20,
                 },
                 1024: {
                     slidesPerView: 5,
+                    spaceBetween: 20,
                 },
             }
         });
 
+        // Certifications Swiper
+        if (document.querySelector('.certifications-swiper')) {
+            new Swiper('.certifications-swiper', {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 2800,
+                    disableOnInteraction: false,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                        spaceBetween: 20,
+                    },
+                }
+            });
+        }
+
         // Clients Swiper
         new Swiper('.clients-swiper', {
             slidesPerView: 2,
-            spaceBetween: 30,
+            spaceBetween: 20,
             loop: true,
             autoplay: {
                 delay: 3000,
@@ -713,12 +875,15 @@
             breakpoints: {
                 640: {
                     slidesPerView: 3,
+                    spaceBetween: 20,
                 },
                 768: {
                     slidesPerView: 4,
+                    spaceBetween: 20,
                 },
                 1024: {
                     slidesPerView: 5,
+                    spaceBetween: 20,
                 },
             }
         });

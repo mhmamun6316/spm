@@ -12,12 +12,12 @@
 
         <!-- Home Menu -->
         <li class="nav-item">
-            <a class="nav-link d-flex justify-content-between align-items-center {{ request()->routeIs('admin.hero-sliders.*', 'admin.home-contents.*') ? '' : 'collapsed' }}"
+            <a class="nav-link d-flex justify-content-between align-items-center {{ request()->routeIs('admin.hero-sliders.*', 'admin.home-contents.*', 'admin.global-partners.*', 'admin.satisfied-clients.*', 'admin.certifications.*') ? '' : 'collapsed' }}"
                href="#" data-bs-toggle="collapse" data-bs-target="#collapseHome" aria-expanded="false">
                 <span><i class="bi bi-house me-2"></i>Home</span>
                 <i class="bi bi-chevron-down"></i>
             </a>
-            <div id="collapseHome" class="collapse {{ request()->routeIs('admin.hero-sliders.*', 'admin.home-contents.*') ? 'show' : '' }}">
+            <div id="collapseHome" class="collapse {{ request()->routeIs('admin.hero-sliders.*', 'admin.home-contents.*', 'admin.global-partners.*', 'admin.satisfied-clients.*', 'admin.certifications.*') ? 'show' : '' }}">
                 <ul class="nav flex-column ms-4">
                     @can('hero_sliders.view')
                     <li class="nav-item">
@@ -44,6 +44,13 @@
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('admin.satisfied-clients.*') ? 'active' : '' }}" href="{{ route('admin.satisfied-clients.index') }}">
                                 Satisfied Clients
+                            </a>
+                        </li>
+                    @endcan
+                    @can('certifications.view')
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('admin.certifications.*') ? 'active' : '' }}" href="{{ route('admin.certifications.index') }}">
+                                Certifications
                             </a>
                         </li>
                     @endcan

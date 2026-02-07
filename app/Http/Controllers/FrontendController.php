@@ -10,6 +10,7 @@ use App\Models\HomeContent;
 use App\Models\PageContent;
 use App\Models\GlobalPartner;
 use App\Models\SatisfiedClient;
+use App\Models\Certification;
 use App\Models\BoardMember;
 use Illuminate\Http\Request;
 
@@ -43,10 +44,13 @@ class FrontendController extends Controller
         // Get active Satisfied Clients
         $satisfiedClients = SatisfiedClient::where('is_active', 1)->get();
         
+        // Get active Certifications
+        $certifications = Certification::where('is_active', 1)->get();
+        
         // Get page content (mission, values, footer info)
         $pageContent = PageContent::first();
         
-        return view('frontend.home', compact('heroSliders', 'homeContents', 'categories', 'services', 'pageContent', 'globalPartners', 'satisfiedClients'));
+        return view('frontend.home', compact('heroSliders', 'homeContents', 'categories', 'services', 'pageContent', 'globalPartners', 'satisfiedClients', 'certifications'));
     }
 
     public function sustainability()

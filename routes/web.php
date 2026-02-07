@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\HomeContentController;
 use App\Http\Controllers\Admin\PageContentController;
 use App\Http\Controllers\Admin\GlobalPartnerController;
 use App\Http\Controllers\Admin\SatisfiedClientController;
+use App\Http\Controllers\Admin\CertificationController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -91,6 +92,9 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Global Partners Routes
     Route::resource('global-partners', GlobalPartnerController::class);
     Route::post('/global-partners/{globalPartner}/toggle-status', [GlobalPartnerController::class, 'toggleStatus'])->name('global-partners.toggle-status');
+    
+    Route::resource('certifications', CertificationController::class);
+    Route::post('/certifications/{certification}/toggle-status', [CertificationController::class, 'toggleStatus'])->name('certifications.toggle-status');
 
     // Satisfied Clients Routes
     Route::resource('satisfied-clients', SatisfiedClientController::class);
