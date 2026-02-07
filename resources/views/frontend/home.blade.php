@@ -434,6 +434,209 @@
             margin-bottom: 0;
         }
 
+        /* Our Values Section */
+        .our-values-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .values-diagram-wrapper {
+            min-height: 500px;
+            position: relative;
+        }
+
+        .values-circle-diagram {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+        }
+
+        .company-name-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .company-name-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .company-name-text {
+            font-size: 14px;
+            fill: rgba(0, 0, 0, 0.3);
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .values-segments-svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            z-index: 2;
+        }
+
+        .value-segment-group {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .value-segment-path {
+            transition: fill 0.3s ease;
+        }
+
+        .value-segment-group:hover .value-segment-path {
+            fill: #dc3545 !important;
+        }
+
+        .segment-icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .segment-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .segment-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            display: block;
+        }
+
+        .segment-icon i {
+            font-size: 50px;
+            color: #ffffff !important;
+            display: block;
+        }
+
+        .segment-label {
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            white-space: nowrap;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .segment-label-svg {
+            fill: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        foreignObject {
+            overflow: visible;
+        }
+
+        .values-center-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .center-logo-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .center-logo-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .center-logo-text {
+            text-align: center;
+        }
+
+        .logo-text-main {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0C2E92;
+            margin-bottom: 5px;
+        }
+
+        .logo-text-sub {
+            font-size: 10px;
+            color: #666666;
+            line-height: 1.2;
+        }
+
+        .values-content {
+            padding: 20px;
+        }
+
+        .values-section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0C2E92;
+            margin-bottom: 40px;
+        }
+
+        .values-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .value-item {
+            margin-bottom: 0;
+        }
+
+        .value-item-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0C2E92;
+            margin-bottom: 8px;
+        }
+
+        .value-item-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #666666;
+            margin: 0;
+        }
+
         @media (max-width: 768px) {
             .mission-vision-section {
                 padding: 60px 0;
@@ -452,6 +655,68 @@
                 width: 50px;
                 height: 50px;
             }
+
+            .our-values-section {
+                padding: 0;
+            }
+
+            .values-diagram-wrapper {
+                min-height: 300px;
+                position: relative;
+            }
+
+            .values-circle-diagram {
+                width: 350px;
+                height: 350px;
+            }
+
+            .values-circle-diagram {
+                width: 400px;
+                height: 400px;
+            }
+
+            .values-segments-svg {
+                width: 350px;
+                height: 350px;
+            }
+
+            .segment-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 10px;
+            }
+
+            .segment-icon i {
+                font-size: 35px;
+            }
+
+            .segment-label {
+                font-size: 10px;
+            }
+
+            .values-center-logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .values-center-logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .values-section-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .value-item-title {
+                font-size: 1.1rem;
+            }
+
+            .value-item-description {
+                font-size: 0.95rem;
+            }
+        }
 
             .card-title {
                 font-size: 1.5rem;
@@ -511,7 +776,7 @@
 
         .why-choose-card {
             height: 100%;
-            min-height: 400px;
+            min-height: 200px;
             border-radius: 8px;
             position: relative;
             overflow: hidden;
@@ -661,7 +926,7 @@
             }
 
             .why-choose-card {
-                min-height: 350px;
+                min-height: 200px;
             }
 
             .why-choose-us-swiper .swiper-slide {
@@ -892,14 +1157,124 @@
         </section>
     @endif
 
+    {{-- Our Values Section --}}
+    <section class="our-values-section" style="background-color: #f5f5f5;">
+        <div class="container">
+            <div class="row align-items-center">
+                {{-- Circular Diagram --}}
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="values-diagram-wrapper d-flex justify-content-center align-items-center">
+                        <div class="values-circle-diagram">
+                            {{-- Value Segments SVG --}}
+                            <svg class="values-segments-svg" viewBox="0 0 500 500">
+                                @php
+                                    $values = [
+                                        ['title' => 'INTEGRITY', 'icon' => 'fas fa-balance-scale', 'color' => '#dc3545', 'description' => 'We create trust through responsible action and honest relationships. We will be guided by the core values of transparency and integrity.'],
+                                        ['title' => 'EXCELLENCE', 'icon' => 'fas fa-star', 'color' => '#0C2E92', 'description' => 'We strive to deliver exceptional results and ensure customer satisfaction.'],
+                                        ['title' => 'CUSTOMER FOCUS', 'icon' => 'fas fa-bullseye', 'color' => '#0C2E92', 'description' => 'Nothing means more to us than the satisfaction of our customers.'],
+                                        ['title' => 'RESPECT', 'icon' => 'fas fa-heart', 'color' => '#0C2E92', 'description' => 'We value everyone and treat people with dignity and professionalism.'],
+                                        ['title' => 'ACCOUNTABILITY', 'icon' => 'fas fa-handshake', 'color' => '#0C2E92', 'description' => 'Each of us is accountable for our words, actions and results.'],
+                                        ['title' => 'COLLABORATION', 'icon' => 'fas fa-users', 'color' => '#0C2E92', 'description' => 'We achieve more when we work together and all pull in the same direction.'],
+                                    ];
+                                    $centerX = 250;
+                                    $centerY = 250;
+                                    $radius = 220;
+                                    $innerRadius = 100;
+                                    $gap = 3; // Gap between segments in degrees
+                                    $segmentAngle = (360 - ($gap * count($values))) / count($values);
+                                @endphp
+
+                                @foreach($values as $index => $value)
+                                    @php
+                                        $startAngleDeg = $index * ($segmentAngle + $gap) - 90;
+                                        $endAngleDeg = $startAngleDeg + $segmentAngle;
+                                        $startAngle = deg2rad($startAngleDeg);
+                                        $endAngle = deg2rad($endAngleDeg);
+
+                                        $x1 = round($centerX + $innerRadius * cos($startAngle), 2);
+                                        $y1 = round($centerY + $innerRadius * sin($startAngle), 2);
+                                        $x2 = round($centerX + $radius * cos($startAngle), 2);
+                                        $y2 = round($centerY + $radius * sin($startAngle), 2);
+                                        $x3 = round($centerX + $radius * cos($endAngle), 2);
+                                        $y3 = round($centerY + $radius * sin($endAngle), 2);
+                                        $x4 = round($centerX + $innerRadius * cos($endAngle), 2);
+                                        $y4 = round($centerY + $innerRadius * sin($endAngle), 2);
+
+                                        $textAngle = ($startAngleDeg + $endAngleDeg) / 2;
+                                        $textRadius = ($innerRadius + $radius) / 2;
+                                        $textX = round($centerX + $textRadius * cos(deg2rad($textAngle)), 2);
+                                        $textY = round($centerY + $textRadius * sin(deg2rad($textAngle)), 2);
+
+                                        // Keep all text at same rotation as EXCELLENCE (-1.5 degrees)
+                                        $textRotation = -1.5;
+                                    @endphp
+
+                                    <g class="value-segment-group" data-segment-color="{{ $value['color'] }}">
+                                        <path class="value-segment-path"
+                                              d="M {{ $centerX }},{{ $centerY }} L {{ $x1 }},{{ $y1 }} A {{ $innerRadius }},{{ $innerRadius }} 0 0,1 {{ $x4 }},{{ $y4 }} Z
+                                                 M {{ $x1 }},{{ $y1 }} L {{ $x2 }},{{ $y2 }} A {{ $radius }},{{ $radius }} 0 0,1 {{ $x3 }},{{ $y3 }} L {{ $x4 }},{{ $y4 }} A {{ $innerRadius }},{{ $innerRadius }} 0 0,0 {{ $x1 }},{{ $y1 }} Z"
+                                              fill="{{ $value['color'] }}"
+                                              stroke="none"/>
+
+                                        {{-- Icon (always upright) --}}
+                                        <g transform="translate({{ $textX }}, {{ $textY - 20 }})">
+                                            <foreignObject x="-35" y="-35" width="70" height="70" style="overflow: visible;">
+                                                <div class="segment-icon-wrapper" xmlns="http://www.w3.org/1999/xhtml">
+                                                    <div class="segment-icon">
+                                                        <i class="{{ $value['icon'] }}"></i>
+                                                    </div>
+                                                </div>
+                                            </foreignObject>
+                                        </g>
+
+                                        {{-- Text (rotated to follow segment direction) --}}
+                                        <g transform="translate({{ $textX }}, {{ $textY + 25 }}) rotate({{ $textRotation }})">
+                                            <text x="0" y="0" text-anchor="middle" class="segment-label-svg" fill="#ffffff" font-size="13" font-weight="700">{{ $value['title'] }}</text>
+                                        </g>
+                                    </g>
+                                @endforeach
+                            </svg>
+
+                            {{-- Center Logo --}}
+                            <div class="values-center-logo">
+                                <div class="center-logo-content">
+                                    <img src="{{ asset('frontend/assets/logo.png') }}" alt="Logo" class="center-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                    <div class="center-logo-text" style="display: none;">
+                                        <div class="logo-text-main">{{ $pageContent->company_name ?? 'ANOOSHA' }}</div>
+                                        <div class="logo-text-sub">APPAREL SOURCING LTD</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Values Text Descriptions --}}
+                <div class="col-lg-6">
+                    <div class="values-content">
+                        <h2 class="values-section-title">Our Values</h2>
+                        <div class="values-list">
+                            @foreach($values as $value)
+                                <div class="value-item">
+                                    <h3 class="value-item-title">{{ $value['title'] }}:</h3>
+                                    <p class="value-item-description">{{ $value['description'] }}</p>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- Services Section (Why Choose Us) --}}
     @if($services && $services->count() > 0)
         <section class="why-choose-us-section py-5">
             <div class="container">
-                <div class="section-title-wrapper text-center mb-5">
+                <div class="section-title-wrapper text-center">
                     <h2 class="section-title">Why Choose Us</h2>
                 </div>
-                
+
                 <div class="swiper why-choose-us-swiper">
                     <div class="swiper-wrapper">
                         @foreach($services as $service)
@@ -1154,7 +1529,6 @@
         align-items: center;
     }
 
-
     .work-together-title {
         font-size: 3rem;
         font-weight: 700;
@@ -1206,10 +1580,6 @@
     }
 
     @media (max-width: 768px) {
-        .work-together-section {
-            padding: 60px 0;
-        }
-
         .work-together-title {
             font-size: 2rem;
         }
