@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\PageContentController;
 use App\Http\Controllers\Admin\GlobalPartnerController;
 use App\Http\Controllers\Admin\SatisfiedClientController;
 use App\Http\Controllers\Admin\CertificationController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Frontend\ContactController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -47,6 +49,8 @@ Route::get('/about/board-of-directors', [FrontendController::class, 'boardOfDire
 
 Route::get('/category/{slug?}', [FrontendController::class, 'category'])->name('category');
 Route::get('/service/{slug}', [FrontendController::class, 'service'])->name('service.show');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 // ============================================
 // ADMIN ROUTES (Protected)
@@ -95,6 +99,12 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     
     Route::resource('certifications', CertificationController::class);
     Route::post('/certifications/{certification}/toggle-status', [CertificationController::class, 'toggleStatus'])->name('certifications.toggle-status');
+
+    // Contact Routes
+    Route::get('/contacts', [AdminContactController::class, 'index'])->name('contacts.index');
+    Route::get('/contacts/{id}', [AdminContactController::class, 'show'])->name('contacts.show');
+    Route::delete('/contacts/{id}', [AdminContactController::class, 'destroy'])->name('contacts.destroy');
+    Route::post('/contacts/{id}/toggle-read', [AdminContactController::class, 'toggleRead'])->name('contacts.toggle-read');
 
     // Satisfied Clients Routes
     Route::resource('satisfied-clients', SatisfiedClientController::class);

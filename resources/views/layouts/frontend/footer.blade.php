@@ -88,7 +88,7 @@
                         <li><a href="{{ route('about.board-of-directors') }}">Board of Directors</a></li>
                         <li><a href="{{ route('home') }}#products">Products</a></li>
                         <li><a href="{{ route('home') }}#services">Services</a></li>
-                        <li><a href="{{ route('home') }}#footer">Contact Us</a></li>
+                        <li><a href="{{ route('contact') }}">Contact Us</a></li>
                     </ul>
                 </div>
             </div>

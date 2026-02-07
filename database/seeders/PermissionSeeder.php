@@ -87,6 +87,10 @@ class PermissionSeeder extends Seeder
             'certifications.create',
             'certifications.edit',
             'certifications.delete',
+
+            // Contacts Group
+            'contacts.view',
+            'contacts.delete',
         ];
 
         foreach ($permissions as $permission) {

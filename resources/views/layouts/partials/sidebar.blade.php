@@ -83,12 +83,12 @@
 
         <!-- Others Menu (Services & Page Settings) -->
         <li class="nav-item">
-            <a class="nav-link d-flex justify-content-between align-items-center {{ request()->routeIs('admin.services.*', 'admin.page-contents.*') ? '' : 'collapsed' }}"
+            <a class="nav-link d-flex justify-content-between align-items-center {{ request()->routeIs('admin.services.*', 'admin.page-contents.*', 'admin.contacts.*') ? '' : 'collapsed' }}"
                href="#" data-bs-toggle="collapse" data-bs-target="#collapseOthers" aria-expanded="false">
                 <span><i class="bi bi-sliders me-2"></i>Others</span>
                 <i class="bi bi-chevron-down"></i>
             </a>
-            <div id="collapseOthers" class="collapse {{ request()->routeIs('admin.services.*', 'admin.page-contents.*') ? 'show' : '' }}">
+            <div id="collapseOthers" class="collapse {{ request()->routeIs('admin.services.*', 'admin.page-contents.*', 'admin.contacts.*') ? 'show' : '' }}">
                 <ul class="nav flex-column ms-4">
                     @can('services.view')
                     <li class="nav-item">
@@ -98,6 +98,11 @@
                     @can('page_contents.edit')
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('admin.page-contents.*') ? 'active' : '' }}" href="{{ route('admin.page-contents.edit') }}">Page Settings</a>
+                    </li>
+                    @endcan
+                    @can('contacts.view')
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}" href="{{ route('admin.contacts.index') }}">Contacts</a>
                     </li>
                     @endcan
                 </ul>

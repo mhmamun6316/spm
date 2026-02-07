@@ -1315,7 +1315,7 @@
 
     {{-- Global Partners Section --}}
     @if($globalPartners && $globalPartners->count() > 0)
-        <section class="global-partners-section">
+        <section class="global-partners-section" id="global-partners">
             <div class="container py-4">
                 <h2 class="text-center section-heading text-uppercase mb-5 text-primary fw-bold" style="color: #0C2E92 !important;">OUR GLOBAL PARTNER</h2>
 
@@ -1391,7 +1391,7 @@
                     <p class="work-together-text" data-aos="fade-up" data-aos-delay="200">
                         If You Find Yourself Questioning, 'Is This The Best It Can Be?' Then Look No Further - We Are The Right Team To Assist You.
                     </p>
-                    <a href="#footer" class="btn btn-contact-us" data-aos="fade-up" data-aos-delay="300">
+                    <a href="{{ route('contact') }}" class="btn btn-contact-us" data-aos="fade-up" data-aos-delay="300">
                         <i class="bi bi-envelope me-2"></i>Contact Us
                     </a>
                 </div>

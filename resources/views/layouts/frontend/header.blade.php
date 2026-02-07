@@ -21,17 +21,33 @@
                 </li>
 
                 <!-- About Us with Submenu -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about.board-of-directors') }}">About Us</a>
+                </li>
+
+                <!-- Services -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        About Us
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                        <li><a class="dropdown-item" href="#">Our History</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ route('about.board-of-directors') }}">Board of Directors</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">At a Glance</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        @php
+                            $navServices = \App\Models\Service::where('is_active', 1)->get();
+                        @endphp
+                        @forelse($navServices as $service)
+                            <li><a class="dropdown-item" href="{{ route('service.show', $service->slug) }}">{{ $service->title }}</a></li>
+                            @if(!$loop->last)
+                                <li><hr class="dropdown-divider"></li>
+                            @endif
+                        @empty
+                            <li><a class="dropdown-item text-muted" href="#">No services available</a></li>
+                        @endforelse
                     </ul>
+                </li>
+
+                <!-- Global Partner -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}#global-partners">Certifications</a>
                 </li>
 
                 <!-- Products with Categories and Sub-products -->
@@ -52,11 +68,11 @@
                                     $categoryProducts = $category->products()->where('status', 1)->get();
                                 @endphp
                                 @if($categoryProducts->count() > 0)
-                                <ul class="dropdown-menu submenu">
-                                    @foreach($categoryProducts as $product)
-                                        <li><a class="dropdown-item" href="{{ route('category', \Illuminate\Support\Str::slug($category->name)) }}">{{ $product->name }}</a></li>
-                                    @endforeach
-                                </ul>
+                                    <ul class="dropdown-menu submenu">
+                                        @foreach($categoryProducts as $product)
+                                            <li><a class="dropdown-item" href="{{ route('category', \Illuminate\Support\Str::slug($category->name)) }}">{{ $product->name }}</a></li>
+                                        @endforeach
+                                    </ul>
                                 @endif
                             </li>
                             @if(!$loop->last)
@@ -68,34 +84,9 @@
                     </ul>
                 </li>
 
-                <!-- Services -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Services
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                        @php
-                            $navServices = \App\Models\Service::where('is_active', 1)->get();
-                        @endphp
-                        @forelse($navServices as $service)
-                            <li><a class="dropdown-item" href="#">{{ $service->title }}</a></li>
-                            @if(!$loop->last)
-                                <li><hr class="dropdown-divider"></li>
-                            @endif
-                        @empty
-                            <li><a class="dropdown-item text-muted" href="#">No services available</a></li>
-                        @endforelse
-                    </ul>
-                </li>
-
-                <!-- Global Partner -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Global Partner</a>
-                </li>
-
                 <!-- Contact Us -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
                 </li>
             </ul>
         </div>
@@ -432,7 +423,7 @@
         const isDesktop = window.innerWidth >= 992;
         const navbar = document.getElementById('navbarNav');
         const navbarToggler = document.querySelector('.navbar-toggler');
-        
+
         // Update desktop check on resize
         window.addEventListener('resize', function() {
             const wasDesktop = window.innerWidth >= 992;
@@ -466,12 +457,12 @@
         // Handle dropdown hover behavior for desktop only
         if (isDesktop) {
             const dropdowns = document.querySelectorAll('.nav-item.dropdown');
-            
+
             dropdowns.forEach(dropdown => {
                 const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
                 const menu = dropdown.querySelector('.dropdown-menu');
                 let hideTimeout;
-                
+
                 // Prevent Bootstrap's default click behavior on desktop (use hover instead)
                 if (dropdownToggle) {
                     dropdownToggle.addEventListener('click', function(e) {
@@ -479,7 +470,7 @@
                         e.stopPropagation();
                     });
                 }
-                
+
                 // Show dropdown on mouseenter
                 dropdown.addEventListener('mouseenter', function() {
                     clearTimeout(hideTimeout);
@@ -491,7 +482,7 @@
                         }
                     }
                 });
-                
+
                 // Hide dropdown on mouseleave with a small delay
                 dropdown.addEventListener('mouseleave', function() {
                     hideTimeout = setTimeout(() => {
@@ -508,10 +499,10 @@
 
             // Handle submenu hover for products
             const submenus = document.querySelectorAll('.dropdown-submenu');
-            
+
             submenus.forEach(submenu => {
                 let hideSubmenuTimeout;
-                
+
                 submenu.addEventListener('mouseenter', function() {
                     clearTimeout(hideSubmenuTimeout);
                     const submenuDropdown = this.querySelector('.submenu');
@@ -520,7 +511,7 @@
                         this.classList.add('show');
                     }
                 });
-                
+
                 submenu.addEventListener('mouseleave', function() {
                     const submenuDropdown = this.querySelector('.submenu');
                     hideSubmenuTimeout = setTimeout(() => {
@@ -540,7 +531,7 @@
                     e.stopPropagation();
                     const submenuItem = this.closest('.dropdown-submenu');
                     const submenu = submenuItem.querySelector('.submenu');
-                    
+
                     // Close other submenus
                     document.querySelectorAll('.dropdown-submenu').forEach(item => {
                         if (item !== submenuItem) {
@@ -551,7 +542,7 @@
                             }
                         }
                     });
-                    
+
                     // Toggle current submenu
                     submenuItem.classList.toggle('show');
                     if (submenu) {
